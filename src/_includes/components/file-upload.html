@@ -1,0 +1,133 @@
+<!--
+  File Upload Component
+
+  This is a reusable file upload component that can be embedded in any page.
+
+  Usage:
+  {% include "components/file-upload.html" %}
+
+  Then initialize with JavaScript:
+  const uploader = new FileUploader({
+    entityType: 'job',
+    entityId: 'uuid-here',
+    containerId: 'file-upload-container'
+  });
+-->
+
+<div id="file-upload-container" class="cs-file-upload-wrapper">
+  <!-- Upload Area -->
+  <div class="cs-upload-section">
+    <div class="cs-upload-dropzone" id="dropzone">
+      <svg class="cs-upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      <p class="cs-upload-text">Drag and drop files here</p>
+      <p class="cs-upload-hint">or click to browse</p>
+      <p class="cs-upload-types">Images (JPG, PNG) and PDFs up to 10MB</p>
+      <input type="file" id="fileInput" class="cs-file-input" multiple accept="image/*,.pdf" />
+      <button type="button" class="cs-button-secondary cs-browse-button" onclick="document.getElementById('fileInput').click()">
+        Browse Files
+      </button>
+    </div>
+
+    <!-- Upload Progress -->
+    <div id="uploadProgress" class="cs-upload-progress" style="display: none;">
+      <div class="cs-progress-item">
+        <div class="cs-progress-info">
+          <span class="cs-progress-filename">Uploading...</span>
+          <span class="cs-progress-percentage">0%</span>
+        </div>
+        <div class="cs-progress-bar">
+          <div class="cs-progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Selection (optional) -->
+    <div class="cs-upload-options">
+      <div class="cs-form-group">
+        <label for="fileCategory" class="cs-form-label">Category (Optional)</label>
+        <select id="fileCategory" class="cs-form-input">
+          <option value="general">General</option>
+          <option value="invoice">Invoice</option>
+          <option value="contract">Contract</option>
+          <option value="photo">Photo</option>
+          <option value="estimate">Estimate</option>
+          <option value="permit">Permit</option>
+          <option value="inspection">Inspection</option>
+        </select>
+      </div>
+      <div class="cs-form-group cs-checkbox-group">
+        <label class="cs-checkbox-label">
+          <input type="checkbox" id="clientVisible" class="cs-checkbox" />
+          <span>Make visible to client</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- File List -->
+  <div class="cs-files-section">
+    <div class="cs-section-header">
+      <h3 class="cs-section-title">Uploaded Files</h3>
+      <span class="cs-file-count" id="fileCount">0 files</span>
+    </div>
+
+    <!-- Loading State -->
+    <div id="filesLoading" class="cs-loading-state">
+      <p>Loading files...</p>
+    </div>
+
+    <!-- Empty State -->
+    <div id="filesEmpty" class="cs-empty-state" style="display: none;">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+        <polyline points="13 2 13 9 20 9"/>
+      </svg>
+      <p>No files uploaded yet</p>
+    </div>
+
+    <!-- Files List -->
+    <div id="filesList" class="cs-files-list"></div>
+  </div>
+
+  <!-- Error Message -->
+  <div id="errorMessage" class="cs-error-message" style="display: none;"></div>
+</div>
+
+<!-- File Item Template (Hidden) -->
+<template id="fileItemTemplate">
+  <div class="cs-file-item" data-file-id="">
+    <div class="cs-file-preview">
+      <!-- Image preview or file icon will be inserted here -->
+    </div>
+    <div class="cs-file-info">
+      <div class="cs-file-header">
+        <span class="cs-file-name"></span>
+        <span class="cs-file-size"></span>
+      </div>
+      <div class="cs-file-meta">
+        <span class="cs-file-category"></span>
+        <span class="cs-file-date"></span>
+        <span class="cs-file-visibility"></span>
+      </div>
+    </div>
+    <div class="cs-file-actions">
+      <button type="button" class="cs-icon-button cs-download-button" title="Download">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </button>
+      <button type="button" class="cs-icon-button cs-delete-button" title="Delete">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</template>

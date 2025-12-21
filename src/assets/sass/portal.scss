@@ -2444,3 +2444,457 @@
         }
     }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// FILE UPLOAD COMPONENT STYLES
+// Simple file upload component with drag-and-drop, preview, and progress
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---    File Upload Component   -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .cs-file-upload-wrapper {
+        width: 100%;
+        max-width: calc(1200 / 16 * 1rem);
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+
+    // Upload Section
+    .cs-upload-section {
+        background-color: #fff;
+        border-radius: calc(12 / 16 * 1rem);
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    // Dropzone
+    .cs-upload-dropzone {
+        border: 2px dashed #d1d5db;
+        border-radius: calc(8 / 16 * 1rem);
+        padding: 3rem 1.5rem;
+        text-align: center;
+        transition: all 0.3s;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 106, 62, 0.02);
+        }
+
+        &.cs-drag-over {
+            border-color: var(--primary);
+            background-color: rgba(255, 106, 62, 0.05);
+        }
+    }
+
+    .cs-upload-icon {
+        color: var(--primary);
+        margin: 0 auto 1rem;
+        display: block;
+    }
+
+    .cs-upload-text {
+        font-size: calc(18 / 16 * 1rem);
+        font-weight: 600;
+        color: var(--headerColor);
+        margin: 0 0 0.5rem;
+    }
+
+    .cs-upload-hint {
+        font-size: calc(14 / 16 * 1rem);
+        color: var(--bodyTextColor);
+        margin: 0 0 0.5rem;
+    }
+
+    .cs-upload-types {
+        font-size: calc(12 / 16 * 1rem);
+        color: #6b7280;
+        margin: 0 0 1.5rem;
+    }
+
+    .cs-file-input {
+        display: none;
+    }
+
+    .cs-browse-button {
+        margin-top: 1rem;
+    }
+
+    // Upload Progress
+    .cs-upload-progress {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background-color: #f9fafb;
+        border-radius: calc(8 / 16 * 1rem);
+    }
+
+    .cs-progress-item {
+        width: 100%;
+    }
+
+    .cs-progress-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .cs-progress-filename {
+        font-size: calc(14 / 16 * 1rem);
+        font-weight: 600;
+        color: var(--headerColor);
+    }
+
+    .cs-progress-percentage {
+        font-size: calc(14 / 16 * 1rem);
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .cs-progress-bar {
+        width: 100%;
+        height: calc(8 / 16 * 1rem);
+        background-color: #e5e7eb;
+        border-radius: calc(4 / 16 * 1rem);
+        overflow: hidden;
+    }
+
+    .cs-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--primaryLight));
+        transition: width 0.3s ease;
+    }
+
+    // Upload Options
+    .cs-upload-options {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cs-checkbox-group {
+        margin-bottom: 0;
+    }
+
+    .cs-checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        font-size: calc(14 / 16 * 1rem);
+    }
+
+    .cs-checkbox {
+        width: calc(18 / 16 * 1rem);
+        height: calc(18 / 16 * 1rem);
+        cursor: pointer;
+    }
+
+    // Files Section
+    .cs-files-section {
+        background-color: #fff;
+        border-radius: calc(12 / 16 * 1rem);
+        padding: 2rem 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cs-section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .cs-section-title {
+        font-size: calc(20 / 16 * 1rem);
+        font-weight: 700;
+        color: var(--headerColor);
+        margin: 0;
+    }
+
+    .cs-file-count {
+        font-size: calc(14 / 16 * 1rem);
+        color: #6b7280;
+    }
+
+    // Loading and Empty States
+    .cs-loading-state,
+    .cs-empty-state {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        color: #6b7280;
+
+        svg {
+            color: #d1d5db;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        p {
+            margin: 0;
+            font-size: calc(16 / 16 * 1rem);
+        }
+    }
+
+    // Files List
+    .cs-files-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    // File Item
+    .cs-file-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: #f9fafb;
+        border-radius: calc(8 / 16 * 1rem);
+        border: 1px solid #e5e7eb;
+        transition: all 0.3s;
+
+        &:hover {
+            border-color: var(--primary);
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    .cs-file-preview {
+        width: calc(60 / 16 * 1rem);
+        height: calc(60 / 16 * 1rem);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e5e7eb;
+        border-radius: calc(6 / 16 * 1rem);
+        overflow: hidden;
+
+        svg {
+            color: #6b7280;
+        }
+    }
+
+    .cs-preview-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cs-file-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .cs-file-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .cs-file-name {
+        font-size: calc(15 / 16 * 1rem);
+        font-weight: 600;
+        color: var(--headerColor);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .cs-file-size {
+        font-size: calc(13 / 16 * 1rem);
+        color: #6b7280;
+        flex-shrink: 0;
+    }
+
+    .cs-file-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        font-size: calc(13 / 16 * 1rem);
+        color: #6b7280;
+    }
+
+    .cs-file-category {
+        text-transform: capitalize;
+    }
+
+    .cs-file-visibility {
+        color: var(--primary);
+        font-weight: 500;
+    }
+
+    .cs-file-actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-shrink: 0;
+    }
+
+    .cs-icon-button {
+        width: calc(36 / 16 * 1rem);
+        height: calc(36 / 16 * 1rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid #e5e7eb;
+        border-radius: calc(6 / 16 * 1rem);
+        cursor: pointer;
+        transition: all 0.3s;
+        padding: 0;
+
+        svg {
+            color: var(--bodyTextColor);
+            transition: color 0.3s;
+        }
+
+        &:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+
+            svg {
+                color: #fff;
+            }
+        }
+
+        &.cs-delete-button:hover {
+            background-color: #ef4444;
+            border-color: #ef4444;
+        }
+    }
+
+    // Error Message
+    .cs-error-message {
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: calc(8 / 16 * 1rem);
+        color: #dc2626;
+        font-size: calc(14 / 16 * 1rem);
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .cs-upload-options {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 1.5rem;
+
+        .cs-form-group {
+            flex: 1;
+        }
+
+        .cs-checkbox-group {
+            flex-shrink: 0;
+        }
+    }
+
+    .cs-file-item {
+        gap: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .cs-file-preview {
+        width: calc(80 / 16 * 1rem);
+        height: calc(80 / 16 * 1rem);
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        .cs-file-upload-wrapper {
+            .cs-upload-section,
+            .cs-files-section {
+                background-color: var(--medium);
+                box-shadow: none;
+            }
+
+            .cs-upload-dropzone {
+                border-color: var(--accent);
+
+                &:hover {
+                    border-color: var(--primary);
+                    background-color: rgba(255, 106, 62, 0.05);
+                }
+
+                &.cs-drag-over {
+                    background-color: rgba(255, 106, 62, 0.1);
+                }
+            }
+
+            .cs-upload-text {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-upload-hint {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-upload-progress {
+                background-color: var(--accent);
+            }
+
+            .cs-progress-filename {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-section-title {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-file-item {
+                background-color: var(--accent);
+                border-color: var(--accent);
+
+                &:hover {
+                    background-color: rgba(255, 106, 62, 0.05);
+                    border-color: var(--primary);
+                }
+            }
+
+            .cs-file-preview {
+                background-color: var(--dark);
+            }
+
+            .cs-file-name {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-icon-button {
+                border-color: var(--accent);
+
+                svg {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                &:hover {
+                    background-color: var(--primary);
+                    border-color: var(--primary);
+
+                    svg {
+                        color: #fff;
+                    }
+                }
+            }
+
+            .cs-error-message {
+                background-color: rgba(239, 68, 68, 0.1);
+                border-color: #ef4444;
+            }
+        }
+    }
+}
