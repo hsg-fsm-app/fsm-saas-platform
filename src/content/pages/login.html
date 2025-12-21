@@ -1,0 +1,100 @@
+---
+title: "Login | Code Stitch Web Designs"
+description: "Sign in to access your customer communication portal"
+permalink: "/login/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/projects.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-310">
+        <div class="cs-container">
+            <span class="cs-int-title">Sign In</span>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">Home</a>
+                <a href="/login/" class="cs-link cs-active">Login</a>
+            </div>
+        </div>
+        <!--Background Image-->
+        <picture class="cs-background">
+            <!--Mobile Image-->
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
+            <!--Tablet Image-->
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
+            <!--Desktop Image-->
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
+            <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="login" width="1920" height="482" loading="eager" decoding="async">
+        </picture>
+    </div>
+
+    <!-- ============================================ -->
+    <!--                 Auth Form                    -->
+    <!-- ============================================ -->
+
+    <section id="auth-form-section">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Customer Portal</span>
+                <h2 class="cs-title">Sign In to Your Account</h2>
+                <p class="cs-text">
+                    Access your customer communication portal to view project updates, messages, and communicate with our team.
+                </p>
+            </div>
+
+            <div class="cs-auth-wrapper">
+                <form id="login-form" class="cs-auth-form">
+                    <div class="cs-form-group">
+                        <label for="email" class="cs-label">Email Address</label>
+                        <input type="email" id="email" name="email" required class="cs-input" placeholder="your@email.com">
+                    </div>
+
+                    <div class="cs-form-group">
+                        <label for="password" class="cs-label">Password</label>
+                        <input type="password" id="password" name="password" required class="cs-input" placeholder="••••••••">
+                    </div>
+
+                    <div class="cs-form-group cs-checkbox-group">
+                        <label class="cs-checkbox-label">
+                            <input type="checkbox" id="remember" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="/reset-password/" class="cs-link">Forgot password?</a>
+                    </div>
+
+                    <div id="auth-error" class="cs-error-message" style="display: none;"></div>
+                    <div id="auth-success" class="cs-success-message" style="display: none;"></div>
+
+                    <button type="submit" class="cs-button-solid" id="login-button">
+                        <span class="cs-button-text">Sign In</span>
+                        <span class="cs-button-loader" style="display: none;">Signing in...</span>
+                    </button>
+                </form>
+
+                <div class="cs-auth-footer">
+                    <p>Don't have an account? <a href="/signup/" class="cs-link-inline">Sign up here</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
+
+    <!-- Load Auth Script -->
+    <script type="module" src="/assets/js/auth.js" defer></script>
+
+{% endblock %}
