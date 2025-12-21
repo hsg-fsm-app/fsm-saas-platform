@@ -1,0 +1,428 @@
+---
+title: "Job Board | Code Stitch Web Designs"
+description: "Manage and track all construction and remodeling projects"
+permalink: "/jobs/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/portal.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                 Job Board                    -->
+    <!-- ============================================ -->
+
+    <section id="portal-section" class="cs-job-board">
+        <div class="cs-portal-container">
+            <!-- Sidebar - Job Filters & Stats -->
+            <aside class="cs-portal-sidebar">
+                <div class="cs-sidebar-header">
+                    <h2 class="cs-sidebar-title">Job Board</h2>
+                    <button class="cs-button-new-conversation" aria-label="Create new job">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Stats Overview -->
+                <div class="cs-job-stats">
+                    <div class="cs-stat-card">
+                        <span class="cs-stat-number">12</span>
+                        <span class="cs-stat-label">Active Jobs</span>
+                    </div>
+                    <div class="cs-stat-card">
+                        <span class="cs-stat-number">3</span>
+                        <span class="cs-stat-label">Starting Soon</span>
+                    </div>
+                    <div class="cs-stat-card">
+                        <span class="cs-stat-number">8</span>
+                        <span class="cs-stat-label">This Month</span>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="cs-filter-tabs">
+                    <button class="cs-filter-tab cs-active">All</button>
+                    <button class="cs-filter-tab">Active</button>
+                    <button class="cs-filter-tab">Pending</button>
+                    <button class="cs-filter-tab">Completed</button>
+                </div>
+
+                <div class="cs-search-wrapper">
+                    <input type="search" class="cs-search-input" placeholder="Search jobs by customer or address...">
+                </div>
+
+                <!-- Quick Filters -->
+                <div class="cs-quick-filters">
+                    <button class="cs-filter-chip cs-active">All Types</button>
+                    <button class="cs-filter-chip">Kitchen</button>
+                    <button class="cs-filter-chip">Bathroom</button>
+                    <button class="cs-filter-chip">Exterior</button>
+                    <button class="cs-filter-chip">Cabinets</button>
+                </div>
+            </aside>
+
+            <!-- Main Job List Area -->
+            <main class="cs-portal-main">
+                <!-- Header with View Toggle -->
+                <div class="cs-chat-header cs-job-header">
+                    <div class="cs-chat-header-info">
+                        <h2 class="cs-chat-title">Active Projects</h2>
+                        <p class="cs-chat-status">12 jobs • 3 require attention</p>
+                    </div>
+                    <div class="cs-view-controls">
+                        <button class="cs-view-toggle cs-active" aria-label="Grid view">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </button>
+                        <button class="cs-view-toggle" aria-label="List view">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <line x1="4" y1="5" x2="16" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="4" y1="15" x2="16" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <select class="cs-sort-select">
+                            <option value="date">Sort by Date</option>
+                            <option value="status">Sort by Status</option>
+                            <option value="customer">Sort by Customer</option>
+                            <option value="budget">Sort by Budget</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Job Cards Grid -->
+                <div class="cs-jobs-container">
+                    <!-- Job Card 1 - In Progress -->
+                    <article class="cs-job-card">
+                        <div class="cs-job-card-header">
+                            <div class="cs-job-status-wrapper">
+                                <span class="cs-job-status cs-in-progress">In Progress</span>
+                                <span class="cs-job-priority cs-high">High Priority</span>
+                            </div>
+                            <button class="cs-job-menu" aria-label="Job options">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="cs-job-card-body">
+                            <h3 class="cs-job-title">Kitchen Remodel - Modern Design</h3>
+                            <p class="cs-job-customer">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 14C2 11.7909 4.68629 10 8 10C11.3137 10 14 11.7909 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                John & Sarah Doe
+                            </p>
+                            <p class="cs-job-location">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 14C8 14 13 10 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 10 8 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                123 Oak Street, Portland, OR
+                            </p>
+                        </div>
+                        <div class="cs-job-card-footer">
+                            <div class="cs-job-meta">
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Budget</span>
+                                    <span class="cs-meta-value">$45,000</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Progress</span>
+                                    <span class="cs-meta-value">65%</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Due Date</span>
+                                    <span class="cs-meta-value">Dec 28</span>
+                                </div>
+                            </div>
+                            <div class="cs-job-progress-bar">
+                                <div class="cs-job-progress-fill" style="width: 65%"></div>
+                            </div>
+                            <a href="/jobs/job-detail/" class="cs-button-secondary">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job Card 2 - Pending -->
+                    <article class="cs-job-card">
+                        <div class="cs-job-card-header">
+                            <div class="cs-job-status-wrapper">
+                                <span class="cs-job-status cs-pending">Pending Start</span>
+                            </div>
+                            <button class="cs-job-menu" aria-label="Job options">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="cs-job-card-body">
+                            <h3 class="cs-job-title">Bathroom Renovation</h3>
+                            <p class="cs-job-customer">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 14C2 11.7909 4.68629 10 8 10C11.3137 10 14 11.7909 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Jane Smith
+                            </p>
+                            <p class="cs-job-location">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 14C8 14 13 10 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 10 8 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                456 Maple Ave, Portland, OR
+                            </p>
+                        </div>
+                        <div class="cs-job-card-footer">
+                            <div class="cs-job-meta">
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Budget</span>
+                                    <span class="cs-meta-value">$28,500</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Progress</span>
+                                    <span class="cs-meta-value">0%</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Start Date</span>
+                                    <span class="cs-meta-value">Jan 5</span>
+                                </div>
+                            </div>
+                            <div class="cs-job-progress-bar">
+                                <div class="cs-job-progress-fill" style="width: 0%"></div>
+                            </div>
+                            <a href="/jobs/job-detail/" class="cs-button-secondary">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job Card 3 - In Progress -->
+                    <article class="cs-job-card">
+                        <div class="cs-job-card-header">
+                            <div class="cs-job-status-wrapper">
+                                <span class="cs-job-status cs-in-progress">In Progress</span>
+                            </div>
+                            <button class="cs-job-menu" aria-label="Job options">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="cs-job-card-body">
+                            <h3 class="cs-job-title">Custom Cabinet Installation</h3>
+                            <p class="cs-job-customer">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 14C2 11.7909 4.68629 10 8 10C11.3137 10 14 11.7909 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Mike Johnson
+                            </p>
+                            <p class="cs-job-location">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 14C8 14 13 10 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 10 8 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                789 Pine Rd, Beaverton, OR
+                            </p>
+                        </div>
+                        <div class="cs-job-card-footer">
+                            <div class="cs-job-meta">
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Budget</span>
+                                    <span class="cs-meta-value">$15,200</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Progress</span>
+                                    <span class="cs-meta-value">40%</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Due Date</span>
+                                    <span class="cs-meta-value">Dec 22</span>
+                                </div>
+                            </div>
+                            <div class="cs-job-progress-bar">
+                                <div class="cs-job-progress-fill" style="width: 40%"></div>
+                            </div>
+                            <a href="/jobs/job-detail/" class="cs-button-secondary">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job Card 4 - Completed -->
+                    <article class="cs-job-card">
+                        <div class="cs-job-card-header">
+                            <div class="cs-job-status-wrapper">
+                                <span class="cs-job-status cs-completed">Completed</span>
+                            </div>
+                            <button class="cs-job-menu" aria-label="Job options">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="cs-job-card-body">
+                            <h3 class="cs-job-title">Exterior Siding Replacement</h3>
+                            <p class="cs-job-customer">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 14C2 11.7909 4.68629 10 8 10C11.3137 10 14 11.7909 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Robert Brown
+                            </p>
+                            <p class="cs-job-location">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 14C8 14 13 10 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 10 8 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                321 Elm St, Lake Oswego, OR
+                            </p>
+                        </div>
+                        <div class="cs-job-card-footer">
+                            <div class="cs-job-meta">
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Budget</span>
+                                    <span class="cs-meta-value">$32,000</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Progress</span>
+                                    <span class="cs-meta-value">100%</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Completed</span>
+                                    <span class="cs-meta-value">Dec 15</span>
+                                </div>
+                            </div>
+                            <div class="cs-job-progress-bar">
+                                <div class="cs-job-progress-fill cs-completed" style="width: 100%"></div>
+                            </div>
+                            <a href="/jobs/job-detail/" class="cs-button-secondary">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job Card 5 - Quote Sent -->
+                    <article class="cs-job-card">
+                        <div class="cs-job-card-header">
+                            <div class="cs-job-status-wrapper">
+                                <span class="cs-job-status cs-quote">Quote Sent</span>
+                            </div>
+                            <button class="cs-job-menu" aria-label="Job options">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="cs-job-card-body">
+                            <h3 class="cs-job-title">Deck Construction & Staining</h3>
+                            <p class="cs-job-customer">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 14C2 11.7909 4.68629 10 8 10C11.3137 10 14 11.7909 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Emily Davis
+                            </p>
+                            <p class="cs-job-location">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 14C8 14 13 10 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 10 8 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                654 Cedar Ln, Tigard, OR
+                            </p>
+                        </div>
+                        <div class="cs-job-card-footer">
+                            <div class="cs-job-meta">
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Quoted</span>
+                                    <span class="cs-meta-value">$18,900</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Sent</span>
+                                    <span class="cs-meta-value">Dec 18</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Expires</span>
+                                    <span class="cs-meta-value">Jan 18</span>
+                                </div>
+                            </div>
+                            <div class="cs-job-quote-actions">
+                                <button class="cs-button-small">Follow Up</button>
+                                <button class="cs-button-small cs-secondary">View Quote</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Job Card 6 - On Hold -->
+                    <article class="cs-job-card">
+                        <div class="cs-job-card-header">
+                            <div class="cs-job-status-wrapper">
+                                <span class="cs-job-status cs-on-hold">On Hold</span>
+                            </div>
+                            <button class="cs-job-menu" aria-label="Job options">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                                    <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="cs-job-card-body">
+                            <h3 class="cs-job-title">Master Bedroom Addition</h3>
+                            <p class="cs-job-customer">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 14C2 11.7909 4.68629 10 8 10C11.3137 10 14 11.7909 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                David Wilson
+                            </p>
+                            <p class="cs-job-location">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 14C8 14 13 10 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 10 8 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                987 Birch Dr, West Linn, OR
+                            </p>
+                        </div>
+                        <div class="cs-job-card-footer">
+                            <div class="cs-job-meta">
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Budget</span>
+                                    <span class="cs-meta-value">$65,000</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Progress</span>
+                                    <span class="cs-meta-value">25%</span>
+                                </div>
+                                <div class="cs-job-meta-item">
+                                    <span class="cs-meta-label">Paused</span>
+                                    <span class="cs-meta-value">Dec 10</span>
+                                </div>
+                            </div>
+                            <div class="cs-job-progress-bar">
+                                <div class="cs-job-progress-fill cs-on-hold" style="width: 25%"></div>
+                            </div>
+                            <a href="/jobs/job-detail/" class="cs-button-secondary">View Details</a>
+                        </div>
+                    </article>
+                </div>
+            </main>
+        </div>
+    </section>
+
+{% endblock %}

@@ -51,6 +51,7 @@
 -   <a href="#deployment">Deployment</a>
 -   <a href="#cost-estimator">Cost Estimator Feature</a>
 -   <a href="#customer-portal">Customer Communication Portal</a>
+-   <a href="#job-board">Job Board & Project Tracking</a>
 
 <a name="overview"></a>
 
@@ -899,3 +900,435 @@ Potential features to add:
 10. **Payment Links**: Send and receive payments in conversation
 
 The portal provides a solid foundation for customer communication that can be extended with additional features as your business needs grow.
+
+<a name="job-board"></a>
+
+## Job Board & Project Tracking
+
+The kit includes a comprehensive job board system for construction and home services businesses to track and manage all their projects from quote to completion.
+
+### Overview
+
+The job board provides a visual, card-based interface for managing multiple jobs simultaneously with detailed tracking capabilities:
+
+- **Jobs Board** (`/jobs/`) - Grid view of all projects with filtering and sorting
+- **Job Detail** (`/jobs/job-detail/`) - Comprehensive individual project management page
+
+### Jobs Board Features
+
+#### Visual Job Cards
+
+Each job is displayed as an informative card showing:
+- **Status Badge** (Quote Sent, Pending Start, In Progress, On Hold, Completed)
+- **Priority Tag** (High, Medium, Low) for critical jobs
+- **Customer Name** with icon
+- **Project Address** with location icon
+- **Budget Information**
+- **Progress Percentage** with visual progress bar
+- **Important Dates** (start date, due date, or completion date)
+- **View Details** button
+
+#### Sidebar Features
+
+- **Statistics Overview**
+  - Active Jobs count
+  - Starting Soon count
+  - This Month count
+- **Filter Tabs**
+  - All, Active, Pending, Completed
+- **Search Functionality**
+  - Search by customer name or address
+- **Quick Filters (Chips)**
+  - All Types, Kitchen, Bathroom, Exterior, Cabinets
+
+#### Header Controls
+
+- **View Toggle** - Switch between grid and list views
+- **Sort Options**
+  - By Date
+  - By Status
+  - By Customer
+  - By Budget
+- **New Job Button** - Create new projects
+
+#### Responsive Grid
+
+- **Mobile:** 1 column layout
+- **Tablet:** 2 column layout
+- **Desktop:** 3 column layout
+
+### Job Detail Page Features
+
+The detail page provides complete project management capabilities:
+
+#### Header Section
+
+- **Job Title** and metadata (Job #, Status, Priority)
+- **Quick Actions**
+  - Edit job button
+  - Share job button
+  - Update Status button
+
+#### Progress Tracking
+
+- **Large Progress Bar** with percentage
+- **Progress Statistics**
+  - Days Elapsed
+  - Days Remaining
+  - Total Days
+- **Real-time Progress Updates**
+
+#### Project Details
+
+Comprehensive project information displayed in grid format:
+- Project Type
+- Start Date & Due Date
+- Contract Value
+- Spent to Date
+- Remaining Budget
+- Detailed description
+- Scope of work (bulleted list)
+
+#### Milestones
+
+Visual milestone tracker with:
+- **Completed Milestones** (green checkmark)
+- **Active Milestone** (pulsing indicator)
+- **Upcoming Milestones** (gray)
+- Completion dates
+- Due dates
+
+#### Recent Activity Feed
+
+Chronological activity log showing:
+- Activity type with icon
+- Description
+- Relative time (e.g., "2 hours ago")
+
+#### Customer Information Sidebar
+
+Sticky sidebar card with:
+- Customer avatar
+- Full name
+- Contact information (email, phone, address)
+- Quick action buttons
+  - Send Email
+  - Call Customer
+  - View Messages (links to portal)
+
+#### Team Management
+
+Display of assigned team members with:
+- Avatar
+- Name
+- Role (Project Manager, Lead Carpenter, etc.)
+
+#### Document Management
+
+List of project documents:
+- Contract Agreement
+- Project Plans
+- Material Lists
+- Permits & Inspections
+- Click to download/view
+
+#### Quick Actions
+
+Grid of common actions:
+- Add Note
+- Schedule Visit
+- Log Hours
+- Request Inspection
+
+### Database Schema
+
+The job board uses comprehensive Supabase tables:
+
+**`jobs` table:**
+- Job information (title, description, type)
+- Customer relationship
+- Status and priority
+- Budget tracking
+- Progress percentage
+- Important dates
+- Location information
+
+**`job_milestones` table:**
+- Milestone tracking
+- Status (pending, active, completed)
+- Due dates
+- Order sequencing
+
+**`job_activities` table:**
+- Activity log
+- User attribution
+- Timestamps
+
+**`job_team_members` table:**
+- Team assignments
+- Roles
+- Assignment dates
+
+**`job_documents` table:**
+- Document storage references
+- File metadata
+- Upload tracking
+
+### File Structure
+
+1. **`/src/content/pages/jobs.html`** - Jobs board with grid view
+2. **`/src/content/pages/job-detail.html`** - Individual job detail page
+3. **`/src/assets/sass/portal.scss`** - Complete job board styling (appended)
+
+### Design Features
+
+#### Status System
+
+Six distinct status types with color coding:
+- **Quote Sent** (Purple) - Proposal stage
+- **Pending Start** (Orange) - Approved, awaiting start
+- **In Progress** (Blue) - Active work
+- **On Hold** (Gray) - Temporarily paused
+- **Completed** (Green) - Finished successfully
+- **Cancelled** (Red) - Not shown in examples
+
+#### Priority System
+
+Three priority levels:
+- **High Priority** (Red badge) - Urgent attention needed
+- **Medium Priority** (Orange badge) - Normal priority
+- **Low Priority** (Green badge) - Can be scheduled flexibly
+
+#### Progress Visualization
+
+- Color-coded progress bars
+- Green for completed (100%)
+- Gray for on-hold projects
+- Primary color for active projects
+- Smooth animated transitions
+
+#### Interactive Elements
+
+- **Hover Effects** on job cards (lift and shadow)
+- **Filter Chips** with active state highlighting
+- **View Toggle** buttons with active state
+- **Pulsing Animation** on active milestones
+- **Status Indicators** for activity types
+
+### Styling & Responsiveness
+
+#### Card Design
+
+- Clean white cards with subtle shadows
+- Rounded corners (12px)
+- Hover elevation effect
+- Organized header, body, footer sections
+
+#### Color System
+
+Status colors using alpha transparency:
+- Consistent with portal design
+- Accessible contrast ratios
+- Clear visual hierarchy
+
+#### Dark Mode Support
+
+Full dark mode implementation:
+- Cards use `--medium` background
+- Text uses `--bodyTextColorWhite`
+- Borders use `--accent`
+- Maintains readability
+
+#### Responsive Breakpoints
+
+- **Mobile (< 768px):**
+  - Single column layout
+  - Stacked detail sections
+  - Full-width cards
+
+- **Tablet (768px - 1024px):**
+  - Two column job grid
+  - Three column detail grid
+
+- **Desktop (1024px+):**
+  - Three column job grid
+  - Two column detail layout (2fr sidebar, 1fr main)
+
+### Integration with Backend
+
+Connect to Supabase for dynamic data:
+
+**Fetch All Jobs:**
+```javascript
+const { data, error } = await supabase
+  .from('jobs')
+  .select(`
+    *,
+    profiles:customer_id (*),
+    job_team_members (
+      user_id,
+      role,
+      profiles (*)
+    )
+  `)
+  .order('created_at', { ascending: false })
+```
+
+**Fetch Job Details:**
+```javascript
+const { data, error } = await supabase
+  .from('jobs')
+  .select(`
+    *,
+    profiles:customer_id (*),
+    job_milestones (*),
+    job_activities (*),
+    job_team_members (*, profiles (*)),
+    job_documents (*)
+  `)
+  .eq('id', jobId)
+  .single()
+```
+
+**Update Progress:**
+```javascript
+const { data, error } = await supabase
+  .from('jobs')
+  .update({ progress_percentage: newProgress })
+  .eq('id', jobId)
+```
+
+**Add Activity:**
+```javascript
+const { data, error } = await supabase
+  .from('job_activities')
+  .insert({
+    job_id: jobId,
+    user_id: userId,
+    activity_type: 'update',
+    description: 'Progress updated to 65%'
+  })
+```
+
+### Security Implementation
+
+The job board uses comprehensive RLS policies:
+
+**Admin Access:**
+- Full read/write access to all jobs
+- Can create, update, delete any job
+- Can manage team members and documents
+
+**Customer Access:**
+- Can view only their own jobs
+- Read-only access to job details
+- Cannot modify job information
+
+**Team Member Access:**
+- Can view jobs they're assigned to
+- Can add activities and documents
+- Cannot modify core job details
+
+### Customization Options
+
+#### Add More Filters
+
+Extend the filtering system:
+- Filter by date range
+- Filter by team member
+- Filter by budget range
+- Filter by location/city
+
+#### Additional Job Types
+
+Add more project categories:
+- Flooring
+- Painting
+- Roofing
+- Plumbing
+- Electrical
+- HVAC
+
+#### Custom Fields
+
+Extend the job schema:
+- Permit numbers
+- Inspector notes
+- Material suppliers
+- Subcontractor information
+- Weather delays tracking
+
+#### Enhanced Milestones
+
+Add milestone features:
+- Milestone dependencies
+- Automatic notifications
+- Photo uploads per milestone
+- Customer approval required
+
+#### Budget Tracking
+
+Detailed financial features:
+- Line item budgets
+- Purchase order tracking
+- Invoice generation
+- Payment schedule
+- Profit margin calculations
+
+### Testing the Job Board
+
+1. Navigate to `/jobs/` to see the jobs board
+2. Test filtering by status (All, Active, Pending, Completed)
+3. Test quick filters by project type
+4. Use the search to find jobs by customer or address
+5. Toggle between grid and list views
+6. Change sort order
+7. Click "View Details" to see job detail page
+8. Test responsive behavior on all screen sizes
+9. Verify dark mode styling
+10. Test all interactive elements
+
+### Best Practices
+
+**Job Status Management:**
+- Keep statuses up to date
+- Use priority tags for urgent jobs
+- Update progress regularly
+- Complete milestones as they're finished
+
+**Team Communication:**
+- Log all significant activities
+- Add notes for context
+- Upload relevant documents
+- Keep customer informed via portal
+
+**Budget Tracking:**
+- Update spent amounts regularly
+- Monitor budget vs. actual
+- Alert when approaching budget limits
+- Track material and labor separately
+
+**Timeline Management:**
+- Set realistic due dates
+- Update dates when delays occur
+- Use milestones to track phases
+- Schedule regular status updates
+
+### Future Enhancements
+
+Potential features to add:
+
+1. **Calendar View**: Visual timeline of all jobs
+2. **Gantt Charts**: Project scheduling visualization
+3. **Photo Gallery**: Before/after photos per job
+4. **Time Tracking**: Clock in/out for team members
+5. **Material Ordering**: Integrated with suppliers
+6. **Weather Integration**: Automatic delay notifications
+7. **Customer Portal Access**: Let customers view progress
+8. **Mobile App**: Field updates from job sites
+9. **Invoice Generation**: Automatic billing from job data
+10. **Reporting Dashboard**: Analytics and KPIs
+11. **Resource Management**: Equipment and material tracking
+12. **Quality Checklists**: Standardized inspection forms
+
+The job board provides a professional project management solution that scales from small businesses to larger operations with multiple concurrent jobs.

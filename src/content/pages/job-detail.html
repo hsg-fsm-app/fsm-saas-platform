@@ -1,0 +1,395 @@
+---
+title: "Job Details | Code Stitch Web Designs"
+description: "View and manage job details"
+permalink: "/jobs/job-detail/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/portal.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                Job Detail                    -->
+    <!-- ============================================ -->
+
+    <section id="portal-section" class="cs-job-detail-page">
+        <div class="cs-job-detail-container">
+            <!-- Back Navigation -->
+            <div class="cs-back-nav">
+                <a href="/jobs/" class="cs-back-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Back to Jobs
+                </a>
+            </div>
+
+            <!-- Job Header -->
+            <div class="cs-job-detail-header">
+                <div class="cs-job-detail-title-section">
+                    <h1 class="cs-job-detail-title">Kitchen Remodel - Modern Design</h1>
+                    <div class="cs-job-detail-meta">
+                        <span class="cs-job-status cs-in-progress">In Progress</span>
+                        <span class="cs-job-priority cs-high">High Priority</span>
+                        <span class="cs-job-id">Job #KR-2024-001</span>
+                    </div>
+                </div>
+                <div class="cs-job-detail-actions">
+                    <button class="cs-button-icon" aria-label="Edit job">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M14 2L18 6L7 17H3V13L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="cs-button-icon" aria-label="Share job">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="15" cy="5" r="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="15" cy="15" r="2" stroke="currentColor" stroke-width="1.5"/>
+                            <line x1="7" y1="9" x2="13" y2="6" stroke="currentColor" stroke-width="1.5"/>
+                            <line x1="7" y1="11" x2="13" y2="14" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                    <button class="cs-button-primary">Update Status</button>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="cs-job-detail-grid">
+                <!-- Left Column -->
+                <div class="cs-job-detail-main">
+                    <!-- Progress Section -->
+                    <div class="cs-job-section">
+                        <div class="cs-section-header">
+                            <h2 class="cs-section-title">Project Progress</h2>
+                            <span class="cs-progress-percentage">65%</span>
+                        </div>
+                        <div class="cs-job-progress-bar cs-large">
+                            <div class="cs-job-progress-fill" style="width: 65%"></div>
+                        </div>
+                        <div class="cs-progress-stats">
+                            <div class="cs-progress-stat">
+                                <span class="cs-stat-value">18</span>
+                                <span class="cs-stat-label">Days Elapsed</span>
+                            </div>
+                            <div class="cs-progress-stat">
+                                <span class="cs-stat-value">10</span>
+                                <span class="cs-stat-label">Days Remaining</span>
+                            </div>
+                            <div class="cs-progress-stat">
+                                <span class="cs-stat-value">28</span>
+                                <span class="cs-stat-label">Total Days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Details -->
+                    <div class="cs-job-section">
+                        <h2 class="cs-section-title">Project Details</h2>
+                        <div class="cs-detail-grid">
+                            <div class="cs-detail-item">
+                                <span class="cs-detail-label">Project Type</span>
+                                <span class="cs-detail-value">Kitchen Remodel</span>
+                            </div>
+                            <div class="cs-detail-item">
+                                <span class="cs-detail-label">Start Date</span>
+                                <span class="cs-detail-value">December 1, 2024</span>
+                            </div>
+                            <div class="cs-detail-item">
+                                <span class="cs-detail-label">Due Date</span>
+                                <span class="cs-detail-value">December 28, 2024</span>
+                            </div>
+                            <div class="cs-detail-item">
+                                <span class="cs-detail-label">Contract Value</span>
+                                <span class="cs-detail-value">$45,000</span>
+                            </div>
+                            <div class="cs-detail-item">
+                                <span class="cs-detail-label">Spent to Date</span>
+                                <span class="cs-detail-value">$29,250</span>
+                            </div>
+                            <div class="cs-detail-item">
+                                <span class="cs-detail-label">Remaining Budget</span>
+                                <span class="cs-detail-value">$15,750</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="cs-job-section">
+                        <h2 class="cs-section-title">Project Description</h2>
+                        <p class="cs-job-description">
+                            Complete kitchen remodel including new custom cabinetry, quartz countertops, stainless steel appliances, tile backsplash, and hardwood flooring. The project includes removing existing cabinets and countertops, updating electrical and plumbing as needed, and installing all new fixtures and finishes.
+                        </p>
+                        <h3 class="cs-subsection-title">Scope of Work</h3>
+                        <ul class="cs-scope-list">
+                            <li>Demo existing kitchen cabinets and countertops</li>
+                            <li>Install custom white shaker-style cabinets</li>
+                            <li>Install quartz countertops with waterfall edge</li>
+                            <li>Install subway tile backsplash</li>
+                            <li>Replace all appliances with stainless steel</li>
+                            <li>Install pendant lighting over island</li>
+                            <li>Install hardwood flooring throughout</li>
+                            <li>Paint walls and trim</li>
+                        </ul>
+                    </div>
+
+                    <!-- Milestones -->
+                    <div class="cs-job-section">
+                        <h2 class="cs-section-title">Project Milestones</h2>
+                        <div class="cs-milestone-list">
+                            <div class="cs-milestone cs-completed">
+                                <div class="cs-milestone-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-milestone-content">
+                                    <h4 class="cs-milestone-title">Demolition Complete</h4>
+                                    <p class="cs-milestone-date">Completed December 5, 2024</p>
+                                </div>
+                            </div>
+                            <div class="cs-milestone cs-completed">
+                                <div class="cs-milestone-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-milestone-content">
+                                    <h4 class="cs-milestone-title">Electrical & Plumbing Updated</h4>
+                                    <p class="cs-milestone-date">Completed December 10, 2024</p>
+                                </div>
+                            </div>
+                            <div class="cs-milestone cs-active">
+                                <div class="cs-milestone-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-milestone-content">
+                                    <h4 class="cs-milestone-title">Cabinet Installation</h4>
+                                    <p class="cs-milestone-date">In Progress - Due December 18, 2024</p>
+                                </div>
+                            </div>
+                            <div class="cs-milestone">
+                                <div class="cs-milestone-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-milestone-content">
+                                    <h4 class="cs-milestone-title">Countertop Installation</h4>
+                                    <p class="cs-milestone-date">Scheduled for December 20, 2024</p>
+                                </div>
+                            </div>
+                            <div class="cs-milestone">
+                                <div class="cs-milestone-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-milestone-content">
+                                    <h4 class="cs-milestone-title">Final Walkthrough</h4>
+                                    <p class="cs-milestone-date">Scheduled for December 28, 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="cs-job-section">
+                        <h2 class="cs-section-title">Recent Activity</h2>
+                        <div class="cs-activity-list">
+                            <div class="cs-activity-item">
+                                <div class="cs-activity-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 2V8L12 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-activity-content">
+                                    <p class="cs-activity-text">Cabinet installation started</p>
+                                    <span class="cs-activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="cs-activity-item">
+                                <div class="cs-activity-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M2 8H14M2 4H14M2 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-activity-content">
+                                    <p class="cs-activity-text">Progress updated to 65%</p>
+                                    <span class="cs-activity-time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="cs-activity-item">
+                                <div class="cs-activity-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 2V8L12 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-activity-content">
+                                    <p class="cs-activity-text">Customer approved cabinet selection</p>
+                                    <span class="cs-activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="cs-activity-item">
+                                <div class="cs-activity-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="cs-activity-content">
+                                    <p class="cs-activity-text">Electrical work completed and inspected</p>
+                                    <span class="cs-activity-time">3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="cs-job-detail-sidebar">
+                    <!-- Customer Info -->
+                    <div class="cs-job-section cs-sticky">
+                        <h2 class="cs-section-title">Customer Information</h2>
+                        <div class="cs-customer-card">
+                            <div class="cs-customer-avatar">
+                                <img src="/assets/svgs/profile.svg" alt="John & Sarah Doe" width="60" height="60">
+                            </div>
+                            <h3 class="cs-customer-name">John & Sarah Doe</h3>
+                            <div class="cs-customer-details">
+                                <div class="cs-customer-detail">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M2 3H14C14.5523 3 15 3.44772 15 4V12C15 12.5523 14.5523 13 14 13H2C1.44772 13 1 12.5523 1 12V4C1 3.44772 1.44772 3 2 3Z" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M1 4L8 9L15 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                    <a href="mailto:john.doe@email.com">john.doe@email.com</a>
+                                </div>
+                                <div class="cs-customer-detail">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M2 3C2 2.44772 2.44772 2 3 2H6L7 5L5.5 6C6.5 8 8 9.5 10 10.5L11 9L14 10V13C14 13.5523 13.5523 14 13 14C6.92487 14 2 9.07513 2 3Z" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                    <a href="tel:+15035551234">(503) 555-1234</a>
+                                </div>
+                                <div class="cs-customer-detail">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 14C8 14 13 10 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 10 8 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+                                        <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                    <span>123 Oak Street<br>Portland, OR 97201</span>
+                                </div>
+                            </div>
+                            <div class="cs-customer-actions">
+                                <a href="mailto:john.doe@email.com" class="cs-button-secondary cs-full-width">Send Email</a>
+                                <a href="tel:+15035551234" class="cs-button-secondary cs-full-width">Call Customer</a>
+                                <a href="/portal/" class="cs-button-secondary cs-full-width">View Messages</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Members -->
+                    <div class="cs-job-section">
+                        <h2 class="cs-section-title">Team Assigned</h2>
+                        <div class="cs-team-list">
+                            <div class="cs-team-member">
+                                <img src="/assets/svgs/profile.svg" alt="Mike Johnson" width="32" height="32" class="cs-team-avatar">
+                                <div class="cs-team-info">
+                                    <span class="cs-team-name">Mike Johnson</span>
+                                    <span class="cs-team-role">Project Manager</span>
+                                </div>
+                            </div>
+                            <div class="cs-team-member">
+                                <img src="/assets/svgs/profile.svg" alt="Tom Anderson" width="32" height="32" class="cs-team-avatar">
+                                <div class="cs-team-info">
+                                    <span class="cs-team-name">Tom Anderson</span>
+                                    <span class="cs-team-role">Lead Carpenter</span>
+                                </div>
+                            </div>
+                            <div class="cs-team-member">
+                                <img src="/assets/svgs/profile.svg" alt="Chris Martinez" width="32" height="32" class="cs-team-avatar">
+                                <div class="cs-team-info">
+                                    <span class="cs-team-name">Chris Martinez</span>
+                                    <span class="cs-team-role">Electrician</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documents -->
+                    <div class="cs-job-section">
+                        <h2 class="cs-section-title">Documents</h2>
+                        <div class="cs-document-list">
+                            <a href="#" class="cs-document-item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M12 2H5C4.44772 2 4 2.44772 4 3V17C4 17.5523 4.44772 18 5 18H15C15.5523 18 16 17.5523 16 17V6L12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M12 2V6H16" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <span>Contract Agreement.pdf</span>
+                            </a>
+                            <a href="#" class="cs-document-item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M12 2H5C4.44772 2 4 2.44772 4 3V17C4 17.5523 4.44772 18 5 18H15C15.5523 18 16 17.5523 16 17V6L12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M12 2V6H16" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <span>Project Plans.pdf</span>
+                            </a>
+                            <a href="#" class="cs-document-item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M12 2H5C4.44772 2 4 2.44772 4 3V17C4 17.5523 4.44772 18 5 18H15C15.5523 18 16 17.5523 16 17V6L12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M12 2V6H16" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <span>Material List.xlsx</span>
+                            </a>
+                            <a href="#" class="cs-document-item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M12 2H5C4.44772 2 4 2.44772 4 3V17C4 17.5523 4.44772 18 5 18H15C15.5523 18 16 17.5523 16 17V6L12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M12 2V6H16" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <span>Permits & Inspections.pdf</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="cs-job-section">
+                        <h2 class="cs-section-title">Quick Actions</h2>
+                        <div class="cs-quick-actions">
+                            <button class="cs-action-button">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Add Note
+                            </button>
+                            <button class="cs-action-button">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M7 3V5M13 3V5M4 9H16M5 3H15C15.5523 3 16 3.44772 16 4V16C16 16.5523 15.5523 17 15 17H5C4.44772 17 4 16.5523 4 16V4C4 3.44772 4.44772 3 5 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Schedule Visit
+                            </button>
+                            <button class="cs-action-button">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M9 2C13.4183 2 17 5.58172 17 10C17 14.4183 13.4183 18 9 18C4.58172 18 1 14.4183 1 10C1 5.58172 4.58172 2 9 2Z" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M9 6V10L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Log Hours
+                            </button>
+                            <button class="cs-action-button">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M10 6V10L13 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Request Inspection
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

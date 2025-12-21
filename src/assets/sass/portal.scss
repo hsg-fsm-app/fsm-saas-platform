@@ -815,3 +815,994 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---        Job Board            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .cs-job-board {
+        // Job Stats
+        .cs-job-stats {
+            padding: 1rem 1.25rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cs-stat-card {
+            text-align: center;
+            padding: 0.75rem;
+            background-color: #f9fafb;
+            border-radius: calc(8 / 16 * 1rem);
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cs-stat-number {
+            font-size: calc(24 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cs-stat-label {
+            font-size: calc(11 / 16 * 1rem);
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        // Quick Filters
+        .cs-quick-filters {
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cs-filter-chip {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            background-color: #fff;
+            color: var(--bodyTextColor);
+            font-size: calc(13 / 16 * 1rem);
+            font-weight: 600;
+            border-radius: calc(20 / 16 * 1rem);
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+
+            &.cs-active,
+            &:hover {
+                background-color: var(--primary);
+                color: #fff;
+                border-color: var(--primary);
+            }
+        }
+
+        // Job Header
+        .cs-job-header {
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cs-view-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cs-view-toggle {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid #e0e0e0;
+            background-color: #fff;
+            color: #6b7280;
+            border-radius: calc(6 / 16 * 1rem);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+
+            &.cs-active,
+            &:hover {
+                background-color: var(--primary);
+                color: #fff;
+                border-color: var(--primary);
+            }
+        }
+
+        .cs-sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: calc(6 / 16 * 1rem);
+            font-size: calc(14 / 16 * 1rem);
+            font-family: inherit;
+            cursor: pointer;
+            transition: border-color 0.3s;
+
+            &:focus {
+                outline: none;
+                border-color: var(--primary);
+            }
+        }
+
+        // Jobs Container
+        .cs-jobs-container {
+            padding: 1.5rem;
+            background-color: #fafafa;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        // Job Card
+        .cs-job-card {
+            background-color: #fff;
+            border-radius: calc(12 / 16 * 1rem);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+
+            &:hover {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+                transform: translateY(-2px);
+            }
+        }
+
+        .cs-job-card-header {
+            padding: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cs-job-status-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cs-job-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: calc(12 / 16 * 1rem);
+            font-size: calc(12 / 16 * 1rem);
+            font-weight: 700;
+
+            &.cs-in-progress {
+                background-color: rgba(59, 130, 246, 0.1);
+                color: #1e40af;
+            }
+
+            &.cs-pending {
+                background-color: rgba(251, 146, 60, 0.1);
+                color: #c2410c;
+            }
+
+            &.cs-completed {
+                background-color: rgba(34, 197, 94, 0.1);
+                color: #15803d;
+            }
+
+            &.cs-quote {
+                background-color: rgba(168, 85, 247, 0.1);
+                color: #7c3aed;
+            }
+
+            &.cs-on-hold {
+                background-color: rgba(107, 114, 128, 0.1);
+                color: #4b5563;
+            }
+        }
+
+        .cs-job-priority {
+            padding: 0.25rem 0.75rem;
+            border-radius: calc(12 / 16 * 1rem);
+            font-size: calc(11 / 16 * 1rem);
+            font-weight: 700;
+
+            &.cs-high {
+                background-color: rgba(239, 68, 68, 0.1);
+                color: #dc2626;
+            }
+
+            &.cs-medium {
+                background-color: rgba(251, 146, 60, 0.1);
+                color: #ea580c;
+            }
+
+            &.cs-low {
+                background-color: rgba(34, 197, 94, 0.1);
+                color: #16a34a;
+            }
+        }
+
+        .cs-job-menu {
+            width: 2rem;
+            height: 2rem;
+            border: none;
+            background-color: transparent;
+            color: #6b7280;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #f3f4f6;
+            }
+        }
+
+        .cs-job-card-body {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .cs-job-title {
+            font-size: calc(18 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-job-customer,
+        .cs-job-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: calc(14 / 16 * 1rem);
+            color: #6b7280;
+            margin: 0;
+
+            svg {
+                flex-shrink: 0;
+            }
+        }
+
+        .cs-job-card-footer {
+            padding: 1rem;
+            border-top: 1px solid #f3f4f6;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cs-job-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .cs-job-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cs-meta-label {
+            font-size: calc(11 / 16 * 1rem);
+            color: #9ca3af;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cs-meta-value {
+            font-size: calc(14 / 16 * 1rem);
+            color: var(--headerColor);
+            font-weight: 600;
+        }
+
+        .cs-job-progress-bar {
+            width: 100%;
+            height: 0.5rem;
+            background-color: #e5e7eb;
+            border-radius: calc(4 / 16 * 1rem);
+            overflow: hidden;
+
+            &.cs-large {
+                height: 0.75rem;
+            }
+        }
+
+        .cs-job-progress-fill {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: calc(4 / 16 * 1rem);
+            transition: width 0.3s;
+
+            &.cs-completed {
+                background-color: #22c55e;
+            }
+
+            &.cs-on-hold {
+                background-color: #9ca3af;
+            }
+        }
+
+        .cs-button-secondary {
+            padding: 0.75rem 1rem;
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: calc(8 / 16 * 1rem);
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: var(--primary);
+                color: #fff;
+            }
+        }
+
+        .cs-job-quote-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .cs-button-small {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: calc(6 / 16 * 1rem);
+            font-size: calc(13 / 16 * 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: var(--primaryLight);
+            }
+
+            &.cs-secondary {
+                background-color: transparent;
+                color: var(--primary);
+                border: 1px solid var(--primary);
+
+                &:hover {
+                    background-color: rgba(255, 106, 62, 0.05);
+                }
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .cs-job-board {
+        .cs-jobs-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    .cs-job-board {
+        .cs-jobs-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---       Job Detail            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .cs-job-detail-page {
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        padding: 0;
+
+        .cs-job-detail-container {
+            max-width: calc(1400 / 16 * 1rem);
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        // Back Navigation
+        .cs-back-nav {
+            margin-bottom: 1.5rem;
+        }
+
+        .cs-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--primaryLight);
+            }
+        }
+
+        // Job Detail Header
+        .cs-job-detail-header {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: calc(12 / 16 * 1rem);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .cs-job-detail-title-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .cs-job-detail-title {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-job-detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cs-job-id {
+            padding: 0.25rem 0.75rem;
+            background-color: #f3f4f6;
+            color: #6b7280;
+            font-size: calc(12 / 16 * 1rem);
+            font-weight: 600;
+            border-radius: calc(12 / 16 * 1rem);
+        }
+
+        .cs-job-detail-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .cs-button-primary {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: calc(8 / 16 * 1rem);
+            font-size: calc(15 / 16 * 1rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: var(--primaryLight);
+            }
+        }
+
+        // Main Grid
+        .cs-job-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .cs-job-detail-main {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .cs-job-detail-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        // Job Section
+        .cs-job-section {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: calc(12 / 16 * 1rem);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+            &.cs-sticky {
+                position: sticky;
+                top: 1rem;
+            }
+        }
+
+        .cs-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .cs-section-title {
+            font-size: calc(18 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0 0 1rem 0;
+        }
+
+        .cs-subsection-title {
+            font-size: calc(16 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .cs-progress-percentage {
+            font-size: calc(24 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cs-progress-stats {
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .cs-progress-stat {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cs-stat-value {
+            font-size: calc(24 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-stat-label {
+            font-size: calc(12 / 16 * 1rem);
+            color: #6b7280;
+        }
+
+        // Detail Grid
+        .cs-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .cs-detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cs-detail-label {
+            font-size: calc(13 / 16 * 1rem);
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .cs-detail-value {
+            font-size: calc(16 / 16 * 1rem);
+            color: var(--headerColor);
+            font-weight: 600;
+        }
+
+        // Description
+        .cs-job-description {
+            font-size: calc(15 / 16 * 1rem);
+            line-height: 1.7;
+            color: var(--bodyTextColor);
+            margin: 0 0 1rem 0;
+        }
+
+        .cs-scope-list {
+            margin: 0;
+            padding-left: 1.5rem;
+
+            li {
+                margin-bottom: 0.5rem;
+                color: var(--bodyTextColor);
+                line-height: 1.6;
+            }
+        }
+
+        // Milestones
+        .cs-milestone-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cs-milestone {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .cs-milestone-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            color: #9ca3af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cs-milestone.cs-completed .cs-milestone-icon {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .cs-milestone.cs-active .cs-milestone-icon {
+            background-color: rgba(255, 106, 62, 0.1);
+            color: var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .cs-milestone-content {
+            flex: 1;
+        }
+
+        .cs-milestone-title {
+            font-size: calc(15 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--headerColor);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .cs-milestone-date {
+            font-size: calc(13 / 16 * 1rem);
+            color: #6b7280;
+            margin: 0;
+        }
+
+        // Activity List
+        .cs-activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cs-activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .cs-activity-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cs-activity-content {
+            flex: 1;
+        }
+
+        .cs-activity-text {
+            font-size: calc(14 / 16 * 1rem);
+            color: var(--headerColor);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .cs-activity-time {
+            font-size: calc(12 / 16 * 1rem);
+            color: #9ca3af;
+        }
+
+        // Customer Card
+        .cs-customer-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .cs-customer-avatar {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .cs-customer-name {
+            font-size: calc(18 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-customer-details {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .cs-customer-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: calc(14 / 16 * 1rem);
+            color: #6b7280;
+            text-align: left;
+
+            a {
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: var(--primaryLight);
+                }
+            }
+
+            svg {
+                flex-shrink: 0;
+            }
+        }
+
+        .cs-customer-actions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .cs-full-width {
+            width: 100%;
+        }
+
+        // Team List
+        .cs-team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .cs-team-member {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cs-team-avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+        }
+
+        .cs-team-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cs-team-name {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .cs-team-role {
+            font-size: calc(12 / 16 * 1rem);
+            color: #6b7280;
+        }
+
+        // Documents
+        .cs-document-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cs-document-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background-color: #f9fafb;
+            border-radius: calc(8 / 16 * 1rem);
+            color: var(--headerColor);
+            text-decoration: none;
+            font-size: calc(14 / 16 * 1rem);
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: #f3f4f6;
+                color: var(--primary);
+            }
+
+            svg {
+                flex-shrink: 0;
+            }
+        }
+
+        // Quick Actions
+        .cs-quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .cs-action-button {
+            padding: 0.75rem;
+            border: 1px solid #e0e0e0;
+            background-color: #fff;
+            color: var(--headerColor);
+            border-radius: calc(8 / 16 * 1rem);
+            font-size: calc(13 / 16 * 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: rgba(255, 106, 62, 0.05);
+                border-color: var(--primary);
+                color: var(--primary);
+            }
+
+            svg {
+                color: inherit;
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .cs-job-detail-page {
+        .cs-job-detail-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cs-detail-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    .cs-job-detail-page {
+        .cs-job-detail-grid {
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+}
+
+/* Dark mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        .cs-job-board,
+        .cs-job-detail-page {
+            background-color: var(--dark);
+
+            .cs-stat-card,
+            .cs-job-card,
+            .cs-job-section {
+                background-color: var(--medium);
+            }
+
+            .cs-job-title,
+            .cs-section-title,
+            .cs-subsection-title,
+            .cs-job-detail-title,
+            .cs-meta-value,
+            .cs-detail-value,
+            .cs-stat-value,
+            .cs-customer-name,
+            .cs-team-name,
+            .cs-milestone-title,
+            .cs-activity-text {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-job-description,
+            .cs-scope-list li {
+                color: var(--bodyTextColorWhite);
+                opacity: 0.9;
+            }
+
+            .cs-job-card-header,
+            .cs-job-card-footer {
+                border-color: var(--accent);
+            }
+
+            .cs-sort-select,
+            .cs-view-toggle,
+            .cs-filter-chip,
+            .cs-action-button,
+            .cs-document-item {
+                background-color: var(--accent);
+                border-color: var(--accent);
+                color: var(--bodyTextColorWhite);
+
+                &:not(.cs-active):hover {
+                    background-color: rgba(255, 106, 62, 0.15);
+                }
+            }
+
+            .cs-back-link {
+                color: var(--primary);
+            }
+
+            .cs-job-detail-header {
+                background-color: var(--medium);
+            }
+
+            .cs-job-id {
+                background-color: var(--accent);
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-milestone-icon,
+            .cs-activity-icon {
+                background-color: var(--accent);
+            }
+
+            .cs-customer-avatar,
+            .cs-team-avatar {
+                background-color: var(--accent);
+            }
+        }
+    }
+}
