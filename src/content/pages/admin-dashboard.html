@@ -1,0 +1,402 @@
+---
+title: 'Admin Dashboard'
+description: 'Manage your website settings and features'
+preloadImg: '/assets/images/landing.jpg'
+permalink: 'admin-dashboard/'
+eleventyNavigation:
+    key: Admin
+    order: 900
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/portal.css">
+{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section id="admin-dashboard">
+            <div class="cs-container">
+                <div class="cs-admin-header">
+                    <div class="cs-admin-header-content">
+                        <h1 class="cs-admin-title">Admin Dashboard</h1>
+                        <p class="cs-admin-subtitle">Manage your website settings, features, and content</p>
+                    </div>
+                    <div class="cs-admin-actions">
+                        <button class="cs-button-secondary">View Site</button>
+                        <button class="cs-button">Save Changes</button>
+                    </div>
+                </div>
+
+                <div class="cs-stats-overview">
+                    <div class="cs-stat-box">
+                        <div class="cs-stat-icon cs-primary">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="cs-stat-content">
+                            <span class="cs-stat-number">156</span>
+                            <span class="cs-stat-label">Total Customers</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-stat-box">
+                        <div class="cs-stat-icon cs-success">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                        </div>
+                        <div class="cs-stat-content">
+                            <span class="cs-stat-number">34</span>
+                            <span class="cs-stat-label">Active Projects</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-stat-box">
+                        <div class="cs-stat-icon cs-warning">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <div class="cs-stat-content">
+                            <span class="cs-stat-number">8</span>
+                            <span class="cs-stat-label">Active Features</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-stat-box">
+                        <div class="cs-stat-icon cs-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="cs-stat-content">
+                            <span class="cs-stat-number">$245K</span>
+                            <span class="cs-stat-label">Revenue This Year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cs-admin-grid">
+                    <div class="cs-admin-section">
+                        <div class="cs-section-header">
+                            <h2 class="cs-section-title">Site Customization</h2>
+                            <span class="cs-section-badge cs-active">Active</span>
+                        </div>
+
+                        <div class="cs-customization-panel">
+                            <div class="cs-customize-group">
+                                <h3 class="cs-customize-subtitle">Brand Colors</h3>
+                                <div class="cs-color-grid">
+                                    <div class="cs-color-picker">
+                                        <label class="cs-color-label">Primary Color</label>
+                                        <div class="cs-color-input-wrapper">
+                                            <input type="color" value="#ff6a3e" class="cs-color-input">
+                                            <span class="cs-color-value">#ff6a3e</span>
+                                        </div>
+                                    </div>
+                                    <div class="cs-color-picker">
+                                        <label class="cs-color-label">Secondary Color</label>
+                                        <div class="cs-color-input-wrapper">
+                                            <input type="color" value="#ffba43" class="cs-color-input">
+                                            <span class="cs-color-value">#ffba43</span>
+                                        </div>
+                                    </div>
+                                    <div class="cs-color-picker">
+                                        <label class="cs-color-label">Accent Color</label>
+                                        <div class="cs-color-input-wrapper">
+                                            <input type="color" value="#1a1a1a" class="cs-color-input">
+                                            <span class="cs-color-value">#1a1a1a</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cs-customize-group">
+                                <h3 class="cs-customize-subtitle">Company Information</h3>
+                                <div class="cs-form-grid">
+                                    <div class="cs-form-group">
+                                        <label class="cs-form-label">Company Name</label>
+                                        <input type="text" class="cs-form-input" value="Your Company Name" placeholder="Enter company name">
+                                    </div>
+                                    <div class="cs-form-group">
+                                        <label class="cs-form-label">Phone Number</label>
+                                        <input type="tel" class="cs-form-input" value="(555) 123-4567" placeholder="Enter phone number">
+                                    </div>
+                                    <div class="cs-form-group">
+                                        <label class="cs-form-label">Email Address</label>
+                                        <input type="email" class="cs-form-input" value="info@company.com" placeholder="Enter email">
+                                    </div>
+                                    <div class="cs-form-group">
+                                        <label class="cs-form-label">Business Address</label>
+                                        <input type="text" class="cs-form-input" value="123 Main St, City, ST 12345" placeholder="Enter address">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cs-customize-group">
+                                <h3 class="cs-customize-subtitle">Logo & Branding</h3>
+                                <div class="cs-upload-area">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="17 8 12 3 7 8"/>
+                                        <line x1="12" y1="3" x2="12" y2="15"/>
+                                    </svg>
+                                    <p class="cs-upload-text">Drop your logo here or click to upload</p>
+                                    <p class="cs-upload-hint">PNG, JPG or SVG (max. 2MB)</p>
+                                    <button class="cs-button-secondary cs-upload-button">Choose File</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cs-admin-section">
+                        <div class="cs-section-header">
+                            <h2 class="cs-section-title">Feature Modules</h2>
+                            <span class="cs-section-badge cs-info">8 Active</span>
+                        </div>
+
+                        <div class="cs-features-grid">
+                            <div class="cs-feature-card cs-enabled">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-active">Active</span>
+                                </div>
+                                <h3 class="cs-feature-name">Project Estimator</h3>
+                                <p class="cs-feature-description">Interactive tool for customers to estimate project costs and requirements.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-enabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <a href="/estimator/" class="cs-feature-link">View Module</a>
+                                </div>
+                            </div>
+
+                            <div class="cs-feature-card cs-enabled">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-active">Active</span>
+                                </div>
+                                <h3 class="cs-feature-name">Client Portal</h3>
+                                <p class="cs-feature-description">Secure messaging system for customer communication and support.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-enabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <a href="/portal/" class="cs-feature-link">View Module</a>
+                                </div>
+                            </div>
+
+                            <div class="cs-feature-card cs-enabled">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-active">Active</span>
+                                </div>
+                                <h3 class="cs-feature-name">Job Management</h3>
+                                <p class="cs-feature-description">Complete project tracking system with timelines and progress monitoring.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-enabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <a href="/jobs/" class="cs-feature-link">View Module</a>
+                                </div>
+                            </div>
+
+                            <div class="cs-feature-card cs-enabled">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-active">Active</span>
+                                </div>
+                                <h3 class="cs-feature-name">CRM System</h3>
+                                <p class="cs-feature-description">Customer relationship management with interaction tracking and follow-ups.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-enabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <a href="/crm/" class="cs-feature-link">View Module</a>
+                                </div>
+                            </div>
+
+                            <div class="cs-feature-card cs-locked">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-locked">Locked</span>
+                                </div>
+                                <h3 class="cs-feature-name">Advanced Analytics</h3>
+                                <p class="cs-feature-description">Comprehensive business insights, reports, and performance dashboards.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-disabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <button class="cs-unlock-button">Unlock Feature</button>
+                                </div>
+                            </div>
+
+                            <div class="cs-feature-card cs-locked">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                            <polyline points="22,6 12,13 2,6"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-locked">Locked</span>
+                                </div>
+                                <h3 class="cs-feature-name">Email Marketing</h3>
+                                <p class="cs-feature-description">Automated email campaigns and customer engagement tools.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-disabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <button class="cs-unlock-button">Unlock Feature</button>
+                                </div>
+                            </div>
+
+                            <div class="cs-feature-card cs-locked">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12 6 12 12 16 14"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-locked">Locked</span>
+                                </div>
+                                <h3 class="cs-feature-name">Scheduling & Calendar</h3>
+                                <p class="cs-feature-description">Integrated calendar system for appointments and team scheduling.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-disabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <button class="cs-unlock-button">Unlock Feature</button>
+                                </div>
+                            </div>
+
+                            <div class="cs-feature-card cs-locked">
+                                <div class="cs-feature-header">
+                                    <div class="cs-feature-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                            <polyline points="10 9 9 9 8 9"/>
+                                        </svg>
+                                    </div>
+                                    <span class="cs-feature-status cs-locked">Locked</span>
+                                </div>
+                                <h3 class="cs-feature-name">Invoice & Payments</h3>
+                                <p class="cs-feature-description">Automated invoicing and online payment processing system.</p>
+                                <div class="cs-feature-footer">
+                                    <button class="cs-toggle-button cs-disabled">
+                                        <span class="cs-toggle-slider"></span>
+                                    </button>
+                                    <button class="cs-unlock-button">Unlock Feature</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cs-admin-footer-section">
+                    <div class="cs-section-header">
+                        <h2 class="cs-section-title">Content Management</h2>
+                        <button class="cs-button-secondary">Edit Content</button>
+                    </div>
+
+                    <div class="cs-content-preview">
+                        <div class="cs-content-card">
+                            <div class="cs-content-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </div>
+                            <div class="cs-content-info">
+                                <h3 class="cs-content-title">Homepage Content</h3>
+                                <p class="cs-content-desc">Hero section, services, testimonials</p>
+                            </div>
+                            <span class="cs-content-status">Last updated: 2 days ago</span>
+                        </div>
+
+                        <div class="cs-content-card">
+                            <div class="cs-content-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                </svg>
+                            </div>
+                            <div class="cs-content-info">
+                                <h3 class="cs-content-title">Blog Posts</h3>
+                                <p class="cs-content-desc">3 published articles</p>
+                            </div>
+                            <span class="cs-content-status">Last updated: 5 days ago</span>
+                        </div>
+
+                        <div class="cs-content-card">
+                            <div class="cs-content-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                            </div>
+                            <div class="cs-content-info">
+                                <h3 class="cs-content-title">Project Gallery</h3>
+                                <p class="cs-content-desc">9 project showcases</p>
+                            </div>
+                            <span class="cs-content-status">Last updated: 1 week ago</span>
+                        </div>
+
+                        <div class="cs-content-card">
+                            <div class="cs-content-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                            </div>
+                            <div class="cs-content-info">
+                                <h3 class="cs-content-title">Customer Reviews</h3>
+                                <p class="cs-content-desc">24 testimonials</p>
+                            </div>
+                            <span class="cs-content-status">Last updated: 3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

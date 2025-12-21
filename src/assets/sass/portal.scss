@@ -1806,3 +1806,641 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---    Admin Dashboard          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #admin-dashboard {
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        padding: 2rem 1rem;
+
+        .cs-container {
+            max-width: calc(1400 / 16 * 1rem);
+            margin: 0 auto;
+        }
+
+        .cs-admin-header {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            @media only screen and (min-width: 48rem) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        }
+
+        .cs-admin-header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cs-admin-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-admin-subtitle {
+            font-size: calc(16 / 16 * 1rem);
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .cs-admin-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .cs-stats-overview {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+
+            @media only screen and (min-width: 48rem) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media only screen and (min-width: 64rem) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .cs-stat-box {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: calc(12 / 16 * 1rem);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+
+            &:hover {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-2px);
+            }
+        }
+
+        .cs-stat-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: calc(10 / 16 * 1rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            &.cs-primary {
+                background-color: rgba(255, 106, 62, 0.1);
+                color: var(--primary);
+            }
+
+            &.cs-success {
+                background-color: rgba(34, 197, 94, 0.1);
+                color: #22c55e;
+            }
+
+            &.cs-warning {
+                background-color: rgba(251, 146, 60, 0.1);
+                color: #fb923c;
+            }
+
+            &.cs-info {
+                background-color: rgba(59, 130, 246, 0.1);
+                color: #3b82f6;
+            }
+        }
+
+        .cs-stat-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cs-stat-number {
+            font-size: calc(28 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-stat-label {
+            font-size: calc(13 / 16 * 1rem);
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .cs-admin-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cs-admin-section {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: calc(12 / 16 * 1rem);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .cs-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cs-section-title {
+            font-size: calc(20 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-section-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: calc(12 / 16 * 1rem);
+            font-size: calc(12 / 16 * 1rem);
+            font-weight: 700;
+
+            &.cs-active {
+                background-color: rgba(34, 197, 94, 0.1);
+                color: #15803d;
+            }
+
+            &.cs-info {
+                background-color: rgba(59, 130, 246, 0.1);
+                color: #1e40af;
+            }
+        }
+
+        .cs-customization-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .cs-customize-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cs-customize-subtitle {
+            font-size: calc(16 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-color-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            @media only screen and (min-width: 48rem) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .cs-color-picker {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cs-color-label {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .cs-color-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background-color: #f9fafb;
+            border-radius: calc(8 / 16 * 1rem);
+            border: 1px solid #e5e7eb;
+        }
+
+        .cs-color-input {
+            width: 3rem;
+            height: 3rem;
+            border: none;
+            border-radius: calc(6 / 16 * 1rem);
+            cursor: pointer;
+        }
+
+        .cs-color-value {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+        }
+
+        .cs-form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            @media only screen and (min-width: 48rem) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .cs-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cs-form-label {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .cs-form-input {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: calc(8 / 16 * 1rem);
+            font-size: calc(15 / 16 * 1rem);
+            font-family: inherit;
+            transition: border-color 0.3s;
+
+            &:focus {
+                outline: none;
+                border-color: var(--primary);
+            }
+
+            &::placeholder {
+                color: #9ca3af;
+            }
+        }
+
+        .cs-upload-area {
+            padding: 2rem;
+            border: 2px dashed #e0e0e0;
+            border-radius: calc(12 / 16 * 1rem);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                border-color: var(--primary);
+                background-color: rgba(255, 106, 62, 0.02);
+            }
+
+            svg {
+                color: #9ca3af;
+            }
+        }
+
+        .cs-upload-text {
+            font-size: calc(16 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-upload-hint {
+            font-size: calc(14 / 16 * 1rem);
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .cs-upload-button {
+            margin-top: 0.5rem;
+        }
+
+        .cs-features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+
+            @media only screen and (min-width: 48rem) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media only screen and (min-width: 64rem) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .cs-feature-card {
+            padding: 1.5rem;
+            border-radius: calc(12 / 16 * 1rem);
+            border: 2px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.3s;
+
+            &.cs-enabled {
+                border-color: rgba(34, 197, 94, 0.3);
+                background-color: rgba(34, 197, 94, 0.02);
+
+                &:hover {
+                    border-color: rgba(34, 197, 94, 0.5);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+            }
+
+            &.cs-locked {
+                border-color: #e5e7eb;
+                background-color: #f9fafb;
+                opacity: 0.7;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .cs-feature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cs-feature-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: calc(10 / 16 * 1rem);
+            background-color: rgba(255, 106, 62, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cs-feature-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: calc(12 / 16 * 1rem);
+            font-size: calc(11 / 16 * 1rem);
+            font-weight: 700;
+
+            &.cs-active {
+                background-color: rgba(34, 197, 94, 0.1);
+                color: #15803d;
+            }
+
+            &.cs-locked {
+                background-color: rgba(107, 114, 128, 0.1);
+                color: #4b5563;
+            }
+        }
+
+        .cs-feature-name {
+            font-size: calc(18 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-feature-description {
+            font-size: calc(14 / 16 * 1rem);
+            line-height: 1.6;
+            color: #6b7280;
+            margin: 0;
+            flex: 1;
+        }
+
+        .cs-feature-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .cs-toggle-button {
+            position: relative;
+            width: 3rem;
+            height: 1.75rem;
+            border: none;
+            border-radius: calc(20 / 16 * 1rem);
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &.cs-enabled {
+                background-color: #22c55e;
+            }
+
+            &.cs-disabled {
+                background-color: #e5e7eb;
+                cursor: not-allowed;
+            }
+        }
+
+        .cs-toggle-slider {
+            position: absolute;
+            top: 0.125rem;
+            left: 0.125rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+
+            .cs-enabled & {
+                transform: translateX(1.25rem);
+            }
+        }
+
+        .cs-feature-link {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--primaryLight);
+            }
+        }
+
+        .cs-unlock-button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: calc(6 / 16 * 1rem);
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: var(--primaryLight);
+            }
+        }
+
+        .cs-admin-footer-section {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: calc(12 / 16 * 1rem);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .cs-content-preview {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            @media only screen and (min-width: 48rem) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media only screen and (min-width: 64rem) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .cs-content-card {
+            padding: 1.5rem;
+            background-color: #f9fafb;
+            border-radius: calc(10 / 16 * 1rem);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: #f3f4f6;
+                transform: translateY(-2px);
+            }
+        }
+
+        .cs-content-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: calc(8 / 16 * 1rem);
+            background-color: rgba(255, 106, 62, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cs-content-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cs-content-title {
+            font-size: calc(16 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-content-desc {
+            font-size: calc(14 / 16 * 1rem);
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .cs-content-status {
+            font-size: calc(12 / 16 * 1rem);
+            color: #9ca3af;
+            font-weight: 600;
+        }
+    }
+}
+
+/* Dark mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #admin-dashboard {
+            background-color: var(--dark);
+
+            .cs-admin-title,
+            .cs-section-title,
+            .cs-stat-number,
+            .cs-customize-subtitle,
+            .cs-color-label,
+            .cs-form-label,
+            .cs-feature-name,
+            .cs-upload-text,
+            .cs-content-title {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-stat-box,
+            .cs-admin-section,
+            .cs-admin-footer-section {
+                background-color: var(--medium);
+            }
+
+            .cs-color-input-wrapper,
+            .cs-form-input,
+            .cs-upload-area,
+            .cs-content-card {
+                background-color: var(--accent);
+                border-color: var(--accent);
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-form-input {
+                &:focus {
+                    border-color: var(--primary);
+                }
+            }
+
+            .cs-feature-card {
+                &.cs-enabled {
+                    background-color: rgba(34, 197, 94, 0.05);
+                    border-color: rgba(34, 197, 94, 0.3);
+                }
+
+                &.cs-locked {
+                    background-color: var(--accent);
+                    border-color: var(--accent);
+                }
+            }
+
+            .cs-content-card {
+                background-color: var(--accent);
+
+                &:hover {
+                    background-color: rgba(255, 106, 62, 0.1);
+                }
+            }
+
+            .cs-upload-area {
+                border-color: var(--accent);
+
+                &:hover {
+                    border-color: var(--primary);
+                    background-color: rgba(255, 106, 62, 0.05);
+                }
+
+                svg {
+                    color: var(--bodyTextColorWhite);
+                }
+            }
+        }
+    }
+}
