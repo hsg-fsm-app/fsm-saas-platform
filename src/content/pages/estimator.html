@@ -1,0 +1,230 @@
+---
+title: "Cost Estimator | Code Stitch Web Designs"
+description: "Get an instant estimate for your home improvement project. Our calculator helps you budget for kitchen remodels, bathroom renovations, and more."
+permalink: "/estimator/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/projects.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-310">
+        <div class="cs-container">
+            <span class="cs-int-title">Project Cost Estimator</span>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">Home</a>
+                <a href="/estimator/" class="cs-link cs-active">Estimator</a>
+            </div>
+        </div>
+        <!--Background Image-->
+        <picture class="cs-background">
+            <!--Mobile Image-->
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
+            <!--Tablet Image-->
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
+            <!--Desktop Image-->
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
+            <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="home renovation" width="1920" height="482" loading="eager" decoding="async">
+        </picture>
+    </div>
+
+    <!-- ============================================ -->
+    <!--              Cost Estimator                  -->
+    <!-- ============================================ -->
+
+    <section id="estimator-section">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Free Estimate</span>
+                <h2 class="cs-title">Calculate Your Project Cost</h2>
+                <p class="cs-text">
+                    Get an instant estimate for your home improvement project. Select your options below to see an approximate cost range. This is a preliminary estimate - contact us for a detailed quote.
+                </p>
+            </div>
+
+            <div class="cs-estimator-wrapper">
+                <!-- Service Type Selection -->
+                <div class="cs-form-group">
+                    <label class="cs-label">Select Service Type</label>
+                    <div class="cs-toggle-group">
+                        <!-- Kitchen Remodel Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="service-kitchen" name="service-type" value="kitchen" checked>
+                            <label for="service-kitchen" class="cs-toggle-label">
+                                <img src="/assets/svgs/s1.svg" alt="" aria-hidden="true">
+                                <span>Kitchen Remodel</span>
+                            </label>
+                        </div>
+
+                        <!-- Bathroom Renovation Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="service-bathroom" name="service-type" value="bathroom">
+                            <label for="service-bathroom" class="cs-toggle-label">
+                                <img src="/assets/svgs/s2.svg" alt="" aria-hidden="true">
+                                <span>Bathroom Renovation</span>
+                            </label>
+                        </div>
+
+                        <!-- Exterior Repairs Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="service-exterior" name="service-type" value="exterior">
+                            <label for="service-exterior" class="cs-toggle-label">
+                                <img src="/assets/svgs/s3.svg" alt="" aria-hidden="true">
+                                <span>Exterior Repairs</span>
+                            </label>
+                        </div>
+
+                        <!-- Utility Maintenance Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="service-utility" name="service-type" value="utility">
+                            <label for="service-utility" class="cs-toggle-label">
+                                <img src="/assets/svgs/s4.svg" alt="" aria-hidden="true">
+                                <span>Utility Work</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Size Selection -->
+                <div class="cs-form-group">
+                    <label class="cs-label">Project Size</label>
+                    <div class="cs-toggle-group cs-size-toggles">
+                        <!-- Small Project Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="size-small" name="project-size" value="small" checked>
+                            <label for="size-small" class="cs-toggle-label">
+                                <span class="cs-size-title">Small</span>
+                                <span class="cs-size-desc">Minor updates</span>
+                            </label>
+                        </div>
+
+                        <!-- Medium Project Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="size-medium" name="project-size" value="medium">
+                            <label for="size-medium" class="cs-toggle-label">
+                                <span class="cs-size-title">Medium</span>
+                                <span class="cs-size-desc">Standard renovation</span>
+                            </label>
+                        </div>
+
+                        <!-- Large Project Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="size-large" name="project-size" value="large">
+                            <label for="size-large" class="cs-toggle-label">
+                                <span class="cs-size-title">Large</span>
+                                <span class="cs-size-desc">Complete overhaul</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Quality Selection -->
+                <div class="cs-form-group">
+                    <label class="cs-label">Material Quality</label>
+                    <div class="cs-toggle-group cs-quality-toggles">
+                        <!-- Basic Materials Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="quality-basic" name="material-quality" value="basic" checked>
+                            <label for="quality-basic" class="cs-toggle-label">
+                                <span class="cs-quality-title">Basic</span>
+                                <span class="cs-quality-desc">Budget-friendly</span>
+                            </label>
+                        </div>
+
+                        <!-- Premium Materials Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="quality-premium" name="material-quality" value="premium">
+                            <label for="quality-premium" class="cs-toggle-label">
+                                <span class="cs-quality-title">Premium</span>
+                                <span class="cs-quality-desc">High-quality</span>
+                            </label>
+                        </div>
+
+                        <!-- Luxury Materials Toggle -->
+                        <div class="cs-toggle-item">
+                            <input type="radio" id="quality-luxury" name="material-quality" value="luxury">
+                            <label for="quality-luxury" class="cs-toggle-label">
+                                <span class="cs-quality-title">Luxury</span>
+                                <span class="cs-quality-desc">Top-of-the-line</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Features (Checkboxes) -->
+                <div class="cs-form-group">
+                    <label class="cs-label">Additional Features</label>
+                    <div class="cs-checkbox-group">
+                        <!-- Rush Service Checkbox -->
+                        <div class="cs-checkbox-item">
+                            <input type="checkbox" id="feature-rush" name="features" value="rush">
+                            <label for="feature-rush" class="cs-checkbox-label">
+                                <span class="cs-checkbox-text">Rush Service</span>
+                                <span class="cs-checkbox-price">+15%</span>
+                            </label>
+                        </div>
+
+                        <!-- Design Consultation Checkbox -->
+                        <div class="cs-checkbox-item">
+                            <input type="checkbox" id="feature-design" name="features" value="design">
+                            <label for="feature-design" class="cs-checkbox-label">
+                                <span class="cs-checkbox-text">Design Consultation</span>
+                                <span class="cs-checkbox-price">+$500</span>
+                            </label>
+                        </div>
+
+                        <!-- Permit Handling Checkbox -->
+                        <div class="cs-checkbox-item">
+                            <input type="checkbox" id="feature-permits" name="features" value="permits">
+                            <label for="feature-permits" class="cs-checkbox-label">
+                                <span class="cs-checkbox-text">Permit Handling</span>
+                                <span class="cs-checkbox-price">+$300</span>
+                            </label>
+                        </div>
+
+                        <!-- Cleanup Service Checkbox -->
+                        <div class="cs-checkbox-item">
+                            <input type="checkbox" id="feature-cleanup" name="features" value="cleanup">
+                            <label for="feature-cleanup" class="cs-checkbox-label">
+                                <span class="cs-checkbox-text">Post-Project Cleanup</span>
+                                <span class="cs-checkbox-price">+$200</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estimate Display -->
+                <div class="cs-estimate-result">
+                    <div class="cs-estimate-box">
+                        <span class="cs-estimate-label">Estimated Cost Range</span>
+                        <span class="cs-estimate-amount" id="estimate-amount">$5,000 - $8,000</span>
+                        <p class="cs-estimate-note">
+                            This is a preliminary estimate based on your selections. Final costs may vary based on specific requirements, materials availability, and site conditions.
+                        </p>
+                    </div>
+                    <a href="/contact/" class="cs-button-solid">Request Detailed Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
+
+    <!-- Load Estimator Calculator Script -->
+    <script src="/assets/js/estimator.js" defer></script>
+
+{% endblock %}

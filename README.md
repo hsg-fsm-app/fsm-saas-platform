@@ -49,6 +49,7 @@
         -   <a href="#robotshtml">robots.html</a>
         -   <a href="#sitemaphtml">sitemap.html</a>
 -   <a href="#deployment">Deployment</a>
+-   <a href="#cost-estimator">Cost Estimator Feature</a>
 
 <a name="overview"></a>
 
@@ -463,3 +464,172 @@ site_url: https://testing-decapbridge.netlify.app
 
 2. Push changes to the repo and test the authentication system. As the admin of the site, your login credentials to access the Decap dashboard are the same as your decapbridge.com credentials.
 3. Invite your client from your decapbridge dashboard. This will create a decapbridge collaborator account for them. From there, they will be able to access their Decap dashboard, reset their password etc.
+
+<a name="cost-estimator"></a>
+
+## Cost Estimator Feature
+
+The kit includes a fully functional cost estimator calculator for home services, accessible at `/estimator/`. This interactive tool helps visitors get instant preliminary estimates for their home improvement projects.
+
+### Overview
+
+The cost estimator is designed for home service businesses to provide transparent, instant pricing estimates to potential customers. The calculator uses a sophisticated pricing model that accounts for multiple factors:
+
+-   Service type (Kitchen Remodel, Bathroom Renovation, Exterior Repairs, Utility Work)
+-   Project size (Small, Medium, Large)
+-   Material quality (Basic, Premium, Luxury)
+-   Additional features (Rush Service, Design Consultation, Permit Handling, Cleanup)
+
+### File Structure
+
+The estimator feature consists of three main files:
+
+1. **`/src/content/pages/estimator.html`** - The main page template with form elements and toggles
+2. **`/src/assets/js/estimator.js`** - Calculator logic with comprehensive inline comments
+3. **`/src/assets/sass/projects.scss`** - Styling (estimator section appended to projects stylesheet)
+
+### How It Works
+
+#### Calculation Logic
+
+The JavaScript calculator (`estimator.js`) uses a multi-step calculation process:
+
+1. **Base Pricing**: Each service type has predefined min/max price ranges for different project sizes
+2. **Material Quality Multiplier**: Applies a multiplier based on material selection (Basic: 1.0x, Premium: 1.3x, Luxury: 1.6x)
+3. **Fixed Feature Costs**: Adds flat fees for services like design consultation ($500), permits ($300), and cleanup ($200)
+4. **Percentage-Based Features**: Applies percentage increases (e.g., Rush Service adds 15% to total)
+5. **Real-time Updates**: Recalculates and displays the estimate instantly when any option changes
+
+#### Code Comments
+
+The `estimator.js` file includes extensive inline comments explaining:
+
+-   The purpose of each function
+-   How pricing structures are defined
+-   The calculation methodology
+-   Event handling and state management
+-   Display formatting logic
+
+These comments make it easy for developers to understand, modify, or extend the calculator.
+
+### Customizing the Estimator
+
+#### Adjusting Prices
+
+To modify pricing for your specific business needs, edit the `basePrices` object in `/src/assets/js/estimator.js`:
+
+```javascript
+const basePrices = {
+    kitchen: {
+        small: { min: 5000, max: 8000 },
+        medium: { min: 15000, max: 25000 },
+        large: { min: 35000, max: 60000 }
+    },
+    // ... adjust values as needed
+};
+```
+
+#### Adding Service Types
+
+To add a new service type:
+
+1. Add the service to the HTML form in `estimator.html`
+2. Add corresponding pricing to the `basePrices` object in `estimator.js`
+3. The calculator will automatically handle the new service type
+
+#### Modifying Material Multipliers
+
+Adjust quality multipliers in `estimator.js`:
+
+```javascript
+const qualityMultipliers = {
+    basic: 1.0,
+    premium: 1.3, // Change to 1.4 for 40% increase
+    luxury: 1.6 // Change to 1.8 for 80% increase
+};
+```
+
+#### Adding/Removing Features
+
+To add new optional features:
+
+1. Add a checkbox in the HTML (`estimator.html`)
+2. Define the feature cost in the `additionalFeatures` object:
+
+```javascript
+const additionalFeatures = {
+    // ... existing features
+    newFeature: { type: 'fixed', value: 400 }
+    // or for percentage: { type: 'percentage', value: 0.10 }
+};
+```
+
+### Styling Customization
+
+The estimator uses the site's existing CSS variables for consistent branding:
+
+-   `--primary`: Main accent color (used for highlights and buttons)
+-   `--headerColor`: Text color for headings
+-   `--bodyTextColor`: Text color for descriptions
+
+The estimator is fully responsive with breakpoints at:
+
+-   Mobile: Single column layout
+-   Tablet (768px): Two-column toggle grid
+-   Desktop (1024px): Four-column service type grid
+
+Dark mode is fully supported and will automatically adapt to the site's dark mode toggle.
+
+### Integration with Configuration Dashboard
+
+The cost estimator is designed to be configurable through an external dashboard. Pricing data, service types, and features can be stored in Supabase and fetched dynamically:
+
+**Potential Dashboard Features:**
+
+-   Adjust pricing for each service type and size
+-   Enable/disable service types
+-   Modify material quality multipliers
+-   Add/remove additional features
+-   Set seasonal pricing adjustments
+-   Track estimator usage analytics
+
+**Implementation Approach:**
+
+To connect the estimator to Supabase:
+
+1. Create a `pricing_config` table in Supabase with pricing data
+2. Modify `estimator.js` to fetch pricing from Supabase on page load
+3. Use Supabase Realtime for live pricing updates (optional)
+4. Create admin dashboard to modify pricing through Supabase API
+
+### User Experience
+
+The estimator provides immediate visual feedback:
+
+-   Selected options are highlighted with the primary color
+-   Checkmarks appear on selected radio options
+-   The estimate amount updates with a subtle fade animation
+-   A prominent gradient box displays the price range
+-   A disclaimer explains that estimates are preliminary
+-   "Request Detailed Quote" button links to the contact page
+
+### Accessibility
+
+The estimator follows accessibility best practices:
+
+-   Semantic HTML with proper form elements
+-   Labels associated with inputs
+-   ARIA attributes for screen readers
+-   Keyboard navigation support
+-   High contrast ratios for text readability
+-   Focus states for interactive elements
+
+### Testing the Estimator
+
+1. Navigate to `/estimator/` on your local development server
+2. Test each service type to ensure pricing calculates correctly
+3. Verify that all toggles and checkboxes work
+4. Check that the estimate updates in real-time
+5. Test responsive behavior on mobile, tablet, and desktop
+6. Verify dark mode styling
+7. Test keyboard navigation and screen reader compatibility

@@ -168,3 +168,409 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---      Cost Estimator        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #estimator-section {
+        padding: var(--sectionPadding);
+        background-color: #f7f7f7;
+        position: relative;
+
+        .cs-container {
+            width: 100%;
+            max-width: calc(1280 / 16 * 1rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(2rem, 4vw, 3rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: calc(630 / 16 * 1rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cs-text {
+            margin-bottom: 1rem;
+        }
+
+        .cs-estimator-wrapper {
+            width: 100%;
+            max-width: calc(900 / 16 * 1rem);
+            background-color: #fff;
+            border-radius: calc(8 / 16 * 1rem);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .cs-form-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cs-label {
+            font-size: calc(18 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            display: block;
+        }
+
+        .cs-toggle-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .cs-toggle-item {
+            position: relative;
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                position: absolute;
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            input[type="radio"]:checked + .cs-toggle-label,
+            input[type="checkbox"]:checked + .cs-checkbox-label {
+                border-color: var(--primary);
+                background-color: rgba(255, 106, 62, 0.05);
+            }
+
+            input[type="radio"]:checked + .cs-toggle-label::after {
+                content: "";
+                position: absolute;
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 1.25rem;
+                height: 1.25rem;
+                background-color: var(--primary);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            input[type="radio"]:checked + .cs-toggle-label::before {
+                content: "✓";
+                position: absolute;
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 1.25rem;
+                height: 1.25rem;
+                color: #fff;
+                font-size: 0.875rem;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1;
+            }
+        }
+
+        .cs-toggle-label {
+            width: 100%;
+            padding: 1.25rem;
+            border: 2px solid #e0e0e0;
+            border-radius: calc(8 / 16 * 1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: #fff;
+
+            &:hover {
+                border-color: var(--primary);
+                background-color: rgba(255, 106, 62, 0.02);
+            }
+
+            img {
+                width: 2.5rem;
+                height: 2.5rem;
+                flex-shrink: 0;
+            }
+
+            span {
+                font-size: calc(16 / 16 * 1rem);
+                font-weight: 600;
+                color: var(--headerColor);
+            }
+        }
+
+        .cs-size-toggles,
+        .cs-quality-toggles {
+            grid-template-columns: repeat(auto-fit, minmax(calc(150 / 16 * 1rem), 1fr));
+        }
+
+        .cs-size-toggles .cs-toggle-label,
+        .cs-quality-toggles .cs-toggle-label {
+            flex-direction: column;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            gap: 0.5rem;
+
+            img {
+                display: none;
+            }
+        }
+
+        .cs-size-title,
+        .cs-quality-title {
+            font-size: calc(18 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-size-desc,
+        .cs-quality-desc {
+            font-size: calc(14 / 16 * 1rem);
+            color: var(--bodyTextColor);
+            font-weight: 400;
+        }
+
+        .cs-checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .cs-checkbox-item {
+            position: relative;
+
+            input[type="checkbox"] {
+                position: absolute;
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            input[type="checkbox"]:checked + .cs-checkbox-label {
+                border-color: var(--primary);
+                background-color: rgba(255, 106, 62, 0.05);
+            }
+
+            input[type="checkbox"]:checked + .cs-checkbox-label::before {
+                content: "✓";
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1.25rem;
+                height: 1.25rem;
+                background-color: var(--primary);
+                border-radius: calc(4 / 16 * 1rem);
+                color: #fff;
+                font-size: 0.875rem;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .cs-checkbox-label {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: calc(8 / 16 * 1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            position: relative;
+
+            &:hover {
+                border-color: var(--primary);
+                background-color: rgba(255, 106, 62, 0.02);
+            }
+        }
+
+        .cs-checkbox-text {
+            font-size: calc(16 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .cs-checkbox-price {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cs-estimate-result {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .cs-estimate-box {
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ff6a3e 0%, #ffba43 100%);
+            border-radius: calc(8 / 16 * 1rem);
+            box-shadow: 0 4px 12px rgba(255, 106, 62, 0.3);
+        }
+
+        .cs-estimate-label {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.9);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .cs-estimate-amount {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: #fff;
+            display: block;
+            margin-bottom: 1rem;
+            transition: opacity 0.15s ease;
+        }
+
+        .cs-estimate-note {
+            font-size: calc(14 / 16 * 1rem);
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: calc(600 / 16 * 1rem);
+            margin: 0 auto;
+        }
+
+        .cs-button-solid {
+            font-size: calc(16 / 16 * 1rem);
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            min-width: calc(200 / 16 * 1rem);
+            padding: 0 calc(32 / 16 * 1rem);
+            background-color: var(--primary);
+            border-radius: calc(4 / 16 * 1rem);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: calc(4 / 16 * 1rem);
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #estimator-section {
+        .cs-toggle-group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cs-size-toggles,
+        .cs-quality-toggles {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #estimator-section {
+        .cs-toggle-group {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+/* Dark mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #estimator-section {
+            background-color: var(--medium);
+
+            .cs-title,
+            .cs-label,
+            .cs-size-title,
+            .cs-quality-title,
+            .cs-checkbox-text {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-text,
+            .cs-size-desc,
+            .cs-quality-desc {
+                color: var(--bodyTextColorWhite);
+                opacity: 0.8;
+            }
+
+            .cs-estimator-wrapper {
+                background-color: var(--dark);
+            }
+
+            .cs-toggle-label,
+            .cs-checkbox-label {
+                background-color: var(--accent);
+                border-color: var(--accent);
+
+                &:hover {
+                    border-color: var(--primary);
+                }
+
+                span {
+                    color: var(--bodyTextColorWhite);
+                }
+            }
+
+            input[type="radio"]:checked + .cs-toggle-label,
+            input[type="checkbox"]:checked + .cs-checkbox-label {
+                background-color: rgba(255, 106, 62, 0.15);
+            }
+
+            .cs-estimate-result {
+                border-top-color: var(--accent);
+            }
+        }
+    }
+}
