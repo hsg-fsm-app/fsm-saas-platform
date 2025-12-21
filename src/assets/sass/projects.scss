@@ -574,3 +574,259 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---      Auth Forms            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #auth-form-section {
+        padding: var(--sectionPadding);
+        background-color: #f7f7f7;
+        position: relative;
+
+        .cs-container {
+            width: 100%;
+            max-width: calc(1280 / 16 * 1rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(2rem, 4vw, 3rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: calc(630 / 16 * 1rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cs-text {
+            margin-bottom: 1rem;
+        }
+
+        .cs-auth-wrapper {
+            width: 100%;
+            max-width: calc(480 / 16 * 1rem);
+            background-color: #fff;
+            border-radius: calc(8 / 16 * 1rem);
+            padding: clamp(2rem, 5vw, 3rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cs-auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .cs-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            &.cs-checkbox-group {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .cs-label {
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .cs-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: calc(8 / 16 * 1rem);
+            font-size: calc(15 / 16 * 1rem);
+            font-family: inherit;
+            transition: border-color 0.3s;
+
+            &:focus {
+                outline: none;
+                border-color: var(--primary);
+            }
+
+            &::placeholder {
+                color: #9ca3af;
+            }
+        }
+
+        .cs-help-text {
+            font-size: calc(13 / 16 * 1rem);
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .cs-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: calc(14 / 16 * 1rem);
+            color: var(--headerColor);
+            cursor: pointer;
+
+            input[type="checkbox"] {
+                width: 1.125rem;
+                height: 1.125rem;
+                cursor: pointer;
+            }
+        }
+
+        .cs-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--primaryLight);
+            }
+        }
+
+        .cs-error-message {
+            padding: 0.75rem 1rem;
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            border-radius: calc(6 / 16 * 1rem);
+            color: #dc2626;
+            font-size: calc(14 / 16 * 1rem);
+        }
+
+        .cs-success-message {
+            padding: 0.75rem 1rem;
+            background-color: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            border-radius: calc(6 / 16 * 1rem);
+            color: #15803d;
+            font-size: calc(14 / 16 * 1rem);
+        }
+
+        .cs-button-solid {
+            font-size: calc(16 / 16 * 1rem);
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            width: 100%;
+            padding: 0 calc(32 / 16 * 1rem);
+            background-color: var(--primary);
+            border: none;
+            border-radius: calc(8 / 16 * 1rem);
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            transition: background-color 0.3s;
+
+            &:hover:not(:disabled) {
+                background-color: var(--primaryLight);
+            }
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+
+        .cs-button-loader {
+            display: none;
+        }
+
+        .cs-button-solid:disabled .cs-button-text {
+            display: none;
+        }
+
+        .cs-button-solid:disabled .cs-button-loader {
+            display: inline;
+        }
+
+        .cs-auth-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+
+            p {
+                margin: 0;
+                font-size: calc(15 / 16 * 1rem);
+                color: var(--bodyTextColor);
+            }
+        }
+
+        .cs-link-inline {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--primaryLight);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* Dark mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #auth-form-section {
+            background-color: var(--medium);
+
+            .cs-title,
+            .cs-label,
+            .cs-checkbox-label span {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-text {
+                color: var(--bodyTextColorWhite);
+                opacity: 0.8;
+            }
+
+            .cs-auth-wrapper {
+                background-color: var(--dark);
+            }
+
+            .cs-input {
+                background-color: var(--accent);
+                border-color: var(--accent);
+                color: var(--bodyTextColorWhite);
+
+                &:focus {
+                    border-color: var(--primary);
+                }
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+            }
+
+            .cs-help-text {
+                color: var(--bodyTextColorWhite);
+                opacity: 0.7;
+            }
+
+            .cs-auth-footer {
+                border-top-color: var(--accent);
+
+                p {
+                    color: var(--bodyTextColorWhite);
+                }
+            }
+        }
+    }
+}

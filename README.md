@@ -50,6 +50,7 @@
         -   <a href="#sitemaphtml">sitemap.html</a>
 -   <a href="#deployment">Deployment</a>
 -   <a href="#cost-estimator">Cost Estimator Feature</a>
+-   <a href="#customer-portal">Customer Communication Portal</a>
 
 <a name="overview"></a>
 
@@ -633,3 +634,268 @@ The estimator follows accessibility best practices:
 5. Test responsive behavior on mobile, tablet, and desktop
 6. Verify dark mode styling
 7. Test keyboard navigation and screen reader compatibility
+
+<a name="customer-portal"></a>
+
+## Customer Communication Portal
+
+The kit includes a fully designed customer communication portal for businesses to communicate with their customers through a modern messaging interface. This feature provides a professional chat experience similar to popular messaging applications.
+
+### Overview
+
+The customer communication portal consists of two main interfaces:
+
+- **Customer Portal** (`/portal/`) - For customers to view and respond to messages from your business
+- **Admin Portal** (`/admin-portal/`) - For business owners and staff to manage all customer conversations
+
+### Pages Included
+
+#### 1. Authentication Pages
+
+**Login Page** (`/login/`)
+- Email and password authentication form
+- "Remember me" checkbox
+- "Forgot password" link
+- Link to signup page
+- Clean, professional design
+
+**Signup Page** (`/signup/`)
+- Full name, email, and password fields
+- Password confirmation
+- Terms of service checkbox
+- Link to login page
+- Form validation ready
+
+#### 2. Customer Portal (`/portal/`)
+
+**Sidebar Features:**
+- Conversation list with search functionality
+- "New conversation" button
+- Unread message badges
+- Online/offline status indicators
+- Conversation previews with last message
+- Timestamps (relative time display)
+
+**Main Chat Area:**
+- Chat header with participant info and status
+- Scrollable message history
+- Date dividers for better organization
+- Message bubbles (sent vs received styling)
+- Message timestamps
+- Read/delivered status indicators
+- Typing indicator animation
+- Message input with attachfile button
+- Send button
+
+#### 3. Admin Portal (`/admin-portal/`)
+
+**Enhanced Sidebar:**
+- All customer conversations in one view
+- Conversation statistics (open, pending counts)
+- Filter tabs (All, Open, Pending, Closed)
+- Search by customer name
+- Status tags (Open, Pending, Closed)
+- Unread message indicators
+
+**Admin Features:**
+- Customer information banner
+  - Email address
+  - Project/conversation topic
+  - Time since conversation started
+  - Link to full customer profile
+- Conversation status dropdown (Open/Pending/Closed)
+- Quick reply templates (optional feature)
+- Enhanced message management
+
+### File Structure
+
+The portal feature consists of the following files:
+
+1. **`/src/content/pages/login.html`** - Login page template
+2. **`/src/content/pages/signup.html`** - Registration page template
+3. **`/src/content/pages/portal.html`** - Customer portal interface
+4. **`/src/content/pages/admin-portal.html`** - Admin portal interface
+5. **`/src/assets/sass/portal.scss`** - Complete portal styling
+6. **`/src/assets/sass/projects.scss`** - Auth form styling (appended)
+
+### Design Features
+
+#### Modern Chat Interface
+
+- **Message Bubbles**: Distinct styling for sent (primary color) vs received (white) messages
+- **Conversation List**: Clean sidebar with conversation previews and metadata
+- **Status Indicators**: Online/offline presence badges
+- **Unread Badges**: Prominent notification counts
+- **Typing Animation**: Animated dots indicate when someone is typing
+- **Responsive Layout**: Adapts beautifully from mobile to desktop
+
+#### User Experience
+
+- **Search Functionality**: Quickly find conversations
+- **Date Dividers**: Organize messages by date
+- **Message Status**: See if messages are delivered or read
+- **Smooth Scrolling**: Natural message flow
+- **Auto-expanding Textarea**: Message input grows with content
+- **Attachment Button**: Ready for file upload implementation
+
+#### Accessibility
+
+- **Semantic HTML**: Proper structure for screen readers
+- **ARIA Labels**: Descriptive labels for all interactive elements
+- **Keyboard Navigation**: Full keyboard support
+- **Color Contrast**: WCAG AA compliant color ratios
+- **Focus States**: Clear visual feedback
+
+### Styling Customization
+
+The portal uses the site's existing CSS variables for consistent branding:
+
+- `--primary`: Used for sent message bubbles and primary actions
+- `--headerColor`: Text color for headings and important text
+- `--bodyTextColor`: Text color for descriptions and metadata
+- `--dark`, `--medium`, `--accent`: Dark mode colors
+
+#### Responsive Breakpoints
+
+- **Mobile** (< 768px): Single column, full-width sidebar toggle
+- **Tablet** (768px - 1024px): Sidebar 360px, messages 60% width
+- **Desktop** (1024px+): Sidebar 400px, messages 50% width
+
+#### Dark Mode
+
+Full dark mode support with:
+- Adjusted background colors
+- Appropriate text contrast
+- Themed message bubbles
+- Consistent status indicators
+
+### Integration with Backend
+
+The portal UI is designed to work with the existing Supabase database schema:
+
+**Database Tables:**
+- `profiles` - User profiles with role (customer/admin)
+- `conversations` - Conversation metadata and status
+- `messages` - Individual messages with read status
+
+**To Connect Backend:**
+
+1. **Initialize Supabase Client**
+   ```javascript
+   import { createClient } from '@supabase/supabase-js'
+
+   const supabase = createClient(
+     process.env.VITE_SUPABASE_URL,
+     process.env.VITE_SUPABASE_ANON_KEY
+   )
+   ```
+
+2. **Load Conversations**
+   ```javascript
+   const { data, error } = await supabase
+     .from('conversations')
+     .select('*, profiles(*), messages(*)')
+     .order('last_message_at', { ascending: false })
+   ```
+
+3. **Send Messages**
+   ```javascript
+   const { data, error } = await supabase
+     .from('messages')
+     .insert({
+       conversation_id: conversationId,
+       sender_id: userId,
+       content: messageText
+     })
+   ```
+
+4. **Real-time Updates**
+   ```javascript
+   supabase
+     .channel('messages')
+     .on('postgres_changes', {
+       event: 'INSERT',
+       schema: 'public',
+       table: 'messages'
+     }, payload => {
+       // Update UI with new message
+     })
+     .subscribe()
+   ```
+
+### Customization Options
+
+#### Conversation Filters
+
+Add more filter tabs in the admin portal:
+- By project type
+- By priority
+- By assigned team member
+- By date range
+
+#### Message Features
+
+Ready-to-implement enhancements:
+- File attachments
+- Image previews
+- Link previews
+- Emoji picker
+- Message reactions
+- Message editing
+- Message deletion
+
+#### Notifications
+
+Integration points for:
+- Browser notifications
+- Email notifications
+- SMS notifications
+- Unread count badges
+
+### Testing the Portal
+
+1. Navigate to `/portal/` to see the customer view
+2. Navigate to `/admin-portal/` to see the admin view
+3. Navigate to `/login/` and `/signup/` for authentication pages
+4. Test responsive behavior on different screen sizes
+5. Verify dark mode styling with the dark mode toggle
+6. Check accessibility with keyboard navigation
+7. Verify all interactive elements have proper hover states
+
+### Best Practices
+
+**Security:**
+- Always validate user authentication before displaying conversations
+- Implement proper Row Level Security (RLS) in Supabase
+- Never expose admin-only features to regular customers
+- Sanitize all user input to prevent XSS attacks
+
+**Performance:**
+- Implement pagination for large conversation lists
+- Use lazy loading for message history
+- Optimize images before sending
+- Implement message caching
+
+**User Experience:**
+- Show loading states during data fetching
+- Provide error messages for failed operations
+- Auto-scroll to latest messages
+- Save draft messages locally
+- Implement message read receipts
+
+### Future Enhancements
+
+Potential features to add:
+
+1. **Video/Audio Calls**: Integration with WebRTC
+2. **Screen Sharing**: For technical support
+3. **Chatbots**: Automated responses for common questions
+4. **Canned Responses**: Pre-written replies for efficiency
+5. **Message Templates**: Formatted messages for quotes, etc.
+6. **Analytics Dashboard**: Conversation metrics and insights
+7. **Multi-language Support**: Translate messages in real-time
+8. **File Storage**: Integrated document sharing
+9. **Calendar Integration**: Schedule appointments from chat
+10. **Payment Links**: Send and receive payments in conversation
+
+The portal provides a solid foundation for customer communication that can be extended with additional features as your business needs grow.

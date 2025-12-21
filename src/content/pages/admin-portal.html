@@ -1,0 +1,260 @@
+---
+title: "Admin Portal | Code Stitch Web Designs"
+description: "Manage customer conversations and communications"
+permalink: "/admin-portal/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/portal.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--               Admin Portal                   -->
+    <!-- ============================================ -->
+
+    <section id="portal-section" class="cs-admin-portal">
+        <div class="cs-portal-container">
+            <!-- Sidebar - Conversations List -->
+            <aside class="cs-portal-sidebar">
+                <div class="cs-sidebar-header">
+                    <h2 class="cs-sidebar-title">All Conversations</h2>
+                    <div class="cs-conversation-stats">
+                        <span class="cs-stat-badge cs-open">12 Open</span>
+                        <span class="cs-stat-badge cs-pending">3 Pending</span>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="cs-filter-tabs">
+                    <button class="cs-filter-tab cs-active">All</button>
+                    <button class="cs-filter-tab">Open</button>
+                    <button class="cs-filter-tab">Pending</button>
+                    <button class="cs-filter-tab">Closed</button>
+                </div>
+
+                <div class="cs-search-wrapper">
+                    <input type="search" class="cs-search-input" placeholder="Search by customer name...">
+                </div>
+
+                <!-- Conversation List -->
+                <div class="cs-conversation-list">
+                    <!-- Active Conversation with Unread Badge -->
+                    <div class="cs-conversation-item cs-active">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="John Doe" width="40" height="40">
+                            <span class="cs-status-indicator cs-online"></span>
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">John Doe</h3>
+                                <span class="cs-conversation-time">2:30 PM</span>
+                            </div>
+                            <p class="cs-conversation-preview"><strong>Kitchen Remodel:</strong> Perfect! I'll make sure everything is cleared...</p>
+                            <div class="cs-conversation-meta">
+                                <span class="cs-status-tag cs-open">Open</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conversation with Pending Status -->
+                    <div class="cs-conversation-item">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Jane Smith" width="40" height="40">
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">Jane Smith</h3>
+                                <span class="cs-conversation-time">1 hour ago</span>
+                            </div>
+                            <p class="cs-conversation-preview"><strong>Bathroom Quote:</strong> What's the estimated timeline for this project?</p>
+                            <div class="cs-conversation-meta">
+                                <span class="cs-status-tag cs-pending">Pending</span>
+                                <span class="cs-unread-badge">2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Open Conversation -->
+                    <div class="cs-conversation-item">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Mike Johnson" width="40" height="40">
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">Mike Johnson</h3>
+                                <span class="cs-conversation-time">Yesterday</span>
+                            </div>
+                            <p class="cs-conversation-preview"><strong>Exterior Repairs:</strong> Can you send me photos of the materials?</p>
+                            <div class="cs-conversation-meta">
+                                <span class="cs-status-tag cs-open">Open</span>
+                                <span class="cs-unread-badge">1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Closed Conversation -->
+                    <div class="cs-conversation-item">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Sarah Williams" width="40" height="40">
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">Sarah Williams</h3>
+                                <span class="cs-conversation-time">3 days ago</span>
+                            </div>
+                            <p class="cs-conversation-preview"><strong>General Inquiry:</strong> Thank you so much for your help!</p>
+                            <div class="cs-conversation-meta">
+                                <span class="cs-status-tag cs-closed">Closed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More Conversations -->
+                    <div class="cs-conversation-item">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Robert Brown" width="40" height="40">
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">Robert Brown</h3>
+                                <span class="cs-conversation-time">1 week ago</span>
+                            </div>
+                            <p class="cs-conversation-preview"><strong>Project Follow-up:</strong> Everything looks great! Very satisfied.</p>
+                            <div class="cs-conversation-meta">
+                                <span class="cs-status-tag cs-closed">Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Chat Area -->
+            <main class="cs-portal-main">
+                <!-- Chat Header with Admin Controls -->
+                <div class="cs-chat-header">
+                    <div class="cs-chat-header-info">
+                        <div class="cs-chat-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="John Doe" width="40" height="40">
+                            <span class="cs-status-indicator cs-online"></span>
+                        </div>
+                        <div class="cs-chat-header-details">
+                            <h2 class="cs-chat-title">John Doe</h2>
+                            <p class="cs-chat-status">Kitchen Remodel Project • Online</p>
+                        </div>
+                    </div>
+                    <div class="cs-admin-controls">
+                        <select class="cs-status-select">
+                            <option value="open" selected>Open</option>
+                            <option value="pending">Pending</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                        <button class="cs-button-icon" aria-label="Conversation options">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                                <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                                <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Info Banner -->
+                <div class="cs-customer-info-banner">
+                    <div class="cs-info-item">
+                        <span class="cs-info-label">Email:</span>
+                        <span class="cs-info-value">john.doe@email.com</span>
+                    </div>
+                    <div class="cs-info-item">
+                        <span class="cs-info-label">Project:</span>
+                        <span class="cs-info-value">Kitchen Remodel</span>
+                    </div>
+                    <div class="cs-info-item">
+                        <span class="cs-info-label">Started:</span>
+                        <span class="cs-info-value">3 days ago</span>
+                    </div>
+                    <a href="/contact/" class="cs-info-link">View Full Profile</a>
+                </div>
+
+                <!-- Messages Container -->
+                <div class="cs-messages-container">
+                    <!-- Date Divider -->
+                    <div class="cs-date-divider">
+                        <span>Today</span>
+                    </div>
+
+                    <!-- Customer Message -->
+                    <div class="cs-message cs-message-received">
+                        <div class="cs-message-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="John Doe" width="32" height="32">
+                        </div>
+                        <div class="cs-message-content">
+                            <div class="cs-message-header">
+                                <span class="cs-message-sender">John Doe</span>
+                                <span class="cs-message-time">10:45 AM</span>
+                            </div>
+                            <div class="cs-message-bubble">
+                                <p>That's wonderful news! When can you start?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Message -->
+                    <div class="cs-message cs-message-sent">
+                        <div class="cs-message-content">
+                            <div class="cs-message-header">
+                                <span class="cs-message-sender">You</span>
+                                <span class="cs-message-time">2:30 PM</span>
+                            </div>
+                            <div class="cs-message-bubble">
+                                <p>Great! We can start the installation next Monday morning. Our team will arrive between 8-9 AM. The project should take approximately 3-4 days to complete.</p>
+                            </div>
+                            <div class="cs-message-status">Read</div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Message -->
+                    <div class="cs-message cs-message-received">
+                        <div class="cs-message-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="John Doe" width="32" height="32">
+                        </div>
+                        <div class="cs-message-content">
+                            <div class="cs-message-header">
+                                <span class="cs-message-sender">John Doe</span>
+                                <span class="cs-message-time">2:35 PM</span>
+                            </div>
+                            <div class="cs-message-bubble">
+                                <p>Perfect! I'll make sure everything is cleared and ready for your team.</p>
+                            </div>
+                            <div class="cs-message-status">Delivered</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="cs-message-input-wrapper">
+                    <button class="cs-attach-button" aria-label="Attach file">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10.5 3.5L5.5 8.5C4.67157 9.32843 4.67157 10.6716 5.5 11.5C6.32843 12.3284 7.67157 12.3284 8.5 11.5L13.5 6.5C14.8807 5.11929 14.8807 2.88071 13.5 1.5C12.1193 0.119288 9.88071 0.119288 8.5 1.5L3.5 6.5C1.567 8.433 1.567 11.567 3.5 13.5C5.433 15.433 8.567 15.433 10.5 13.5L15.5 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="cs-quick-replies">
+                        <button class="cs-quick-reply">Schedule Visit</button>
+                        <button class="cs-quick-reply">Send Quote</button>
+                        <button class="cs-quick-reply">Request Info</button>
+                    </div>
+                    <textarea class="cs-message-input" placeholder="Type your reply..." rows="1"></textarea>
+                    <button class="cs-send-button" aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </main>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,215 @@
+---
+title: "Customer Portal | Code Stitch Web Designs"
+description: "Access your messages and communicate with our team"
+permalink: "/portal/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/portal.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--              Customer Portal                 -->
+    <!-- ============================================ -->
+
+    <section id="portal-section">
+        <div class="cs-portal-container">
+            <!-- Sidebar - Conversations List -->
+            <aside class="cs-portal-sidebar">
+                <div class="cs-sidebar-header">
+                    <h2 class="cs-sidebar-title">Messages</h2>
+                    <button class="cs-button-new-conversation" aria-label="Start new conversation">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="cs-search-wrapper">
+                    <input type="search" class="cs-search-input" placeholder="Search conversations...">
+                </div>
+
+                <!-- Conversation List -->
+                <div class="cs-conversation-list">
+                    <!-- Active Conversation -->
+                    <div class="cs-conversation-item cs-active">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="40" height="40">
+                            <span class="cs-status-indicator cs-online"></span>
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">Kitchen Remodel Project</h3>
+                                <span class="cs-conversation-time">2:30 PM</span>
+                            </div>
+                            <p class="cs-conversation-preview">Great! We can start the installation next Monday morning.</p>
+                            <span class="cs-unread-badge">2</span>
+                        </div>
+                    </div>
+
+                    <!-- Other Conversations -->
+                    <div class="cs-conversation-item">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="40" height="40">
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">Quote Request - Bathroom</h3>
+                                <span class="cs-conversation-time">Yesterday</span>
+                            </div>
+                            <p class="cs-conversation-preview">Thank you for submitting your request. We'll review and get back to you.</p>
+                        </div>
+                    </div>
+
+                    <div class="cs-conversation-item">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="40" height="40">
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">General Inquiry</h3>
+                                <span class="cs-conversation-time">3 days ago</span>
+                            </div>
+                            <p class="cs-conversation-preview">Yes, we offer financing options for projects over $10,000.</p>
+                        </div>
+                    </div>
+
+                    <div class="cs-conversation-item">
+                        <div class="cs-conversation-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="40" height="40">
+                        </div>
+                        <div class="cs-conversation-content">
+                            <div class="cs-conversation-header">
+                                <h3 class="cs-conversation-name">Project Follow-up</h3>
+                                <span class="cs-conversation-time">1 week ago</span>
+                            </div>
+                            <p class="cs-conversation-preview">Your project has been completed. Please let us know if you need anything.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Chat Area -->
+            <main class="cs-portal-main">
+                <!-- Chat Header -->
+                <div class="cs-chat-header">
+                    <div class="cs-chat-header-info">
+                        <div class="cs-chat-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="40" height="40">
+                            <span class="cs-status-indicator cs-online"></span>
+                        </div>
+                        <div class="cs-chat-header-details">
+                            <h2 class="cs-chat-title">Kitchen Remodel Project</h2>
+                            <p class="cs-chat-status">Support Team • Online</p>
+                        </div>
+                    </div>
+                    <button class="cs-chat-options" aria-label="Conversation options">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="5" r="1.5" fill="currentColor"/>
+                            <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                            <circle cx="10" cy="15" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Messages Container -->
+                <div class="cs-messages-container">
+                    <!-- Date Divider -->
+                    <div class="cs-date-divider">
+                        <span>Today</span>
+                    </div>
+
+                    <!-- Received Message -->
+                    <div class="cs-message cs-message-received">
+                        <div class="cs-message-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="32" height="32">
+                        </div>
+                        <div class="cs-message-content">
+                            <div class="cs-message-header">
+                                <span class="cs-message-sender">Support Team</span>
+                                <span class="cs-message-time">10:30 AM</span>
+                            </div>
+                            <div class="cs-message-bubble">
+                                <p>Good morning! I wanted to update you on your kitchen remodel project. We've received all the materials and are ready to begin installation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sent Message -->
+                    <div class="cs-message cs-message-sent">
+                        <div class="cs-message-content">
+                            <div class="cs-message-header">
+                                <span class="cs-message-time">10:45 AM</span>
+                            </div>
+                            <div class="cs-message-bubble">
+                                <p>That's wonderful news! When can you start?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Received Message -->
+                    <div class="cs-message cs-message-received">
+                        <div class="cs-message-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="32" height="32">
+                        </div>
+                        <div class="cs-message-content">
+                            <div class="cs-message-header">
+                                <span class="cs-message-sender">Support Team</span>
+                                <span class="cs-message-time">2:30 PM</span>
+                            </div>
+                            <div class="cs-message-bubble">
+                                <p>Great! We can start the installation next Monday morning. Our team will arrive between 8-9 AM. The project should take approximately 3-4 days to complete.</p>
+                            </div>
+                            <div class="cs-message-status">Read</div>
+                        </div>
+                    </div>
+
+                    <!-- Sent Message -->
+                    <div class="cs-message cs-message-sent">
+                        <div class="cs-message-content">
+                            <div class="cs-message-header">
+                                <span class="cs-message-time">2:35 PM</span>
+                            </div>
+                            <div class="cs-message-bubble">
+                                <p>Perfect! I'll make sure everything is cleared and ready for your team.</p>
+                            </div>
+                            <div class="cs-message-status">Delivered</div>
+                        </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div class="cs-typing-indicator">
+                        <div class="cs-message-avatar">
+                            <img src="/assets/svgs/profile.svg" alt="Support Team" width="32" height="32">
+                        </div>
+                        <div class="cs-typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="cs-message-input-wrapper">
+                    <button class="cs-attach-button" aria-label="Attach file">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10.5 3.5L5.5 8.5C4.67157 9.32843 4.67157 10.6716 5.5 11.5C6.32843 12.3284 7.67157 12.3284 8.5 11.5L13.5 6.5C14.8807 5.11929 14.8807 2.88071 13.5 1.5C12.1193 0.119288 9.88071 0.119288 8.5 1.5L3.5 6.5C1.567 8.433 1.567 11.567 3.5 13.5C5.433 15.433 8.567 15.433 10.5 13.5L15.5 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <textarea class="cs-message-input" placeholder="Type your message..." rows="1"></textarea>
+                    <button class="cs-send-button" aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </main>
+        </div>
+    </section>
+
+{% endblock %}
