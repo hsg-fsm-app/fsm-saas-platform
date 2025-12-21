@@ -1,0 +1,224 @@
+---
+title: 'Pricing'
+description: 'Choose the perfect plan for your business'
+preloadImg: '/assets/images/landing.jpg'
+permalink: 'pricing/'
+eleventyNavigation:
+    key: Pricing
+    order: 400
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/about.css">
+{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section id="int-hero">
+            <h1 id="home-h">Simple, Transparent Pricing</h1>
+            <picture>
+                <source media="(max-width: 600px)" srcset="/assets/images/cabinets.jpg">
+                <source media="(min-width: 601px)" srcset="/assets/images/cabinets.jpg">
+                <img aria-hidden="true" decoding="async" src="/assets/images/cabinets.jpg" alt="construction site" loading="eager" width="2500" height="1667">
+            </picture>
+        </section>
+
+        <section id="pricing-section">
+            <div class="cs-container">
+                <div class="cs-content">
+                    <span class="cs-topper">Pricing Plans</span>
+                    <h2 class="cs-title">Choose the Right Plan for Your Business</h2>
+                    <p class="cs-text">
+                        Select a plan that fits your needs. All plans include our core features with flexible options to scale as you grow.
+                    </p>
+                </div>
+
+                <div class="cs-pricing-grid">
+                    <div class="cs-pricing-card">
+                        <div class="cs-card-header">
+                            <h3 class="cs-plan-name">Starter</h3>
+                            <p class="cs-plan-description">Perfect for small businesses getting started</p>
+                        </div>
+                        <div class="cs-price-wrapper">
+                            <span class="cs-currency">$</span>
+                            <span class="cs-price">99</span>
+                            <span class="cs-period">/month</span>
+                        </div>
+                        <ul class="cs-features-list">
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Up to 50 customers</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Project estimator tool</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Customer reviews management</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Basic client portal</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Email support</span>
+                            </li>
+                        </ul>
+                        <a href="/contact/" class="cs-button-secondary">Get Started</a>
+                    </div>
+
+                    <div class="cs-pricing-card cs-featured">
+                        <div class="cs-badge">Most Popular</div>
+                        <div class="cs-card-header">
+                            <h3 class="cs-plan-name">Professional</h3>
+                            <p class="cs-plan-description">Ideal for growing businesses</p>
+                        </div>
+                        <div class="cs-price-wrapper">
+                            <span class="cs-currency">$</span>
+                            <span class="cs-price">150</span>
+                            <span class="cs-period">/month</span>
+                        </div>
+                        <ul class="cs-features-list">
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Unlimited customers</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Advanced estimator with templates</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Full reviews & testimonials suite</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Premium client portal with messaging</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Job tracking & management</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Priority support</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Custom branding options</span>
+                            </li>
+                        </ul>
+                        <a href="/contact/" class="cs-button">Get Started</a>
+                    </div>
+
+                    <div class="cs-pricing-card">
+                        <div class="cs-card-header">
+                            <h3 class="cs-plan-name">Enterprise</h3>
+                            <p class="cs-plan-description">For large organizations with custom needs</p>
+                        </div>
+                        <div class="cs-price-wrapper">
+                            <span class="cs-price cs-custom-price">Custom</span>
+                        </div>
+                        <ul class="cs-features-list">
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Everything in Professional</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Dedicated account manager</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Advanced analytics & reporting</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Custom integrations</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>White-label options</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>24/7 phone & email support</span>
+                            </li>
+                            <li class="cs-feature-item">
+                                <svg class="cs-check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>SLA guarantee</span>
+                            </li>
+                        </ul>
+                        <a href="/contact/" class="cs-button-secondary">Contact Sales</a>
+                    </div>
+                </div>
+
+                <div class="cs-faq-section">
+                    <h3 class="cs-faq-title">Frequently Asked Questions</h3>
+                    <div class="cs-faq-grid">
+                        <div class="cs-faq-item">
+                            <h4 class="cs-faq-question">Can I change plans later?</h4>
+                            <p class="cs-faq-answer">Yes, you can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle.</p>
+                        </div>
+                        <div class="cs-faq-item">
+                            <h4 class="cs-faq-question">Is there a setup fee?</h4>
+                            <p class="cs-faq-answer">No, there are no setup fees. You only pay the monthly subscription rate for your chosen plan.</p>
+                        </div>
+                        <div class="cs-faq-item">
+                            <h4 class="cs-faq-question">Do you offer annual billing?</h4>
+                            <p class="cs-faq-answer">Yes, annual billing is available with a 15% discount. Contact us to set up annual billing for your account.</p>
+                        </div>
+                        <div class="cs-faq-item">
+                            <h4 class="cs-faq-question">What payment methods do you accept?</h4>
+                            <p class="cs-faq-answer">We accept all major credit cards, ACH transfers, and wire transfers for Enterprise customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'sections/cta.html' %}
+{% endblock %}

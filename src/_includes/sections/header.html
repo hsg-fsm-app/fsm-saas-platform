@@ -26,60 +26,34 @@
                             Home
                         </a>
                     </li>
-                    <li class="cs-li">
-                        <a href="/about/" class="cs-li-link {% if page.url == "/about/" %} cs-active {% endif %}" {% if page.url == "/about/" %} aria-current="page" {% endif %}>
-                            About
-                        </a>
-                    </li>
-                    <!-- Note: When copying this dropdown, update the id attribute with an appropriate name (e.g., "services-dropdown-toggle", "products-dropdown-toggle") and ensure the aria-labelledby attribute on the ul matches the button's id -->
-                    <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
                     <li class="cs-li cs-dropdown">
-                        <button class="cs-li-link cs-dropdown-toggle {% if page.url == "/project-one/" or page.url == "/project-two/" %} cs-active {% endif %}" aria-haspopup="menu" aria-expanded="false" id="projects-dropdown-toggle">
-                            Projects
+                        <button class="cs-li-link cs-dropdown-toggle {% if page.url == "/reviews/" or page.url == "/estimator/" or page.url == "/portal/" or "/jobs/" in page.url %} cs-active {% endif %}" aria-haspopup="menu" aria-expanded="false" id="features-dropdown-toggle">
+                            Features
                             <img class="cs-drop-icon" src="/assets/svgs/dropdown.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true">
                         </button>
-                        <ul class="cs-drop-ul" aria-labelledby="projects-dropdown-toggle">
+                        <ul class="cs-drop-ul" aria-labelledby="features-dropdown-toggle">
                             <li class="cs-drop-li">
-                                <a href="/project-one/" class="cs-li-link cs-drop-link">Project One</a>
+                                <a href="/reviews/" class="cs-li-link cs-drop-link">Reviews</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/project-two/" class="cs-li-link cs-drop-link">Project Two</a>
+                                <a href="/estimator/" class="cs-li-link cs-drop-link">Estimator</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="/portal/" class="cs-li-link cs-drop-link">Portal</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="/jobs/" class="cs-li-link cs-drop-link">Jobs</a>
                             </li>
                         </ul>
                     </li>
                     <li class="cs-li">
-                        <a href="/reviews/" class="cs-li-link {% if page.url == "/reviews/" %} cs-active {% endif %}" {% if page.url == "/reviews/" %} aria-current="page" {% endif %}>
-                            Reviews
+                        <a href="/pricing/" class="cs-li-link {% if page.url == "/pricing/" %} cs-active {% endif %}" {% if page.url == "/pricing/" %} aria-current="page" {% endif %}>
+                            Pricing
                         </a>
                     </li>
                     <li class="cs-li">
                         <a href="/blog/" class="cs-li-link {% if page.url == "/blog/" %} cs-active {% endif %}" {% if page.url == "/blog/" %} aria-current="page" {% endif %}>
-                            Blog
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/estimator/" class="cs-li-link {% if page.url == "/estimator/" %} cs-active {% endif %}" {% if page.url == "/estimator/" %} aria-current="page" {% endif %}>
-                            Estimator
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/portal/" class="cs-li-link {% if page.url == "/portal/" or page.url == "/admin-portal/" %} cs-active {% endif %}" {% if page.url == "/portal/" or page.url == "/admin-portal/" %} aria-current="page" {% endif %}>
-                            Portal
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/jobs/" class="cs-li-link {% if page.url == "/jobs/" or "/jobs/" in page.url %} cs-active {% endif %}" {% if page.url == "/jobs/" or "/jobs/" in page.url %} aria-current="page" {% endif %}>
-                            Jobs
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/crm/" class="cs-li-link {% if page.url == "/crm/" or "/crm/" in page.url %} cs-active {% endif %}" {% if page.url == "/crm/" or "/crm/" in page.url %} aria-current="page" {% endif %}>
-                            CRM
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/admin-dashboard/" class="cs-li-link {% if page.url == "/admin-dashboard/" %} cs-active {% endif %}" {% if page.url == "/admin-dashboard/" %} aria-current="page" {% endif %}>
-                            Admin
+                            Insights
                         </a>
                     </li>
                     <li class="cs-li cs-hide-on-desktop">
