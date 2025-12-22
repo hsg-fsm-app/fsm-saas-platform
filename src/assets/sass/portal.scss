@@ -1816,7 +1816,8 @@
     #admin-dashboard {
         min-height: 100vh;
         background-color: #f5f5f5;
-        padding: 2rem 1rem;
+        /* Account for fixed header - top padding includes header offset */
+        padding: calc(80 / 16 * 1rem + 2rem) 1rem 2rem 1rem;
 
         .cs-container {
             max-width: calc(1400 / 16 * 1rem);

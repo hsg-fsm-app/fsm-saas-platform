@@ -13,10 +13,13 @@
 @media only screen and (min-width: 0px) {
 	/* All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
 	:root {
+		 /* Brand */
 		--primary: #ff6a3e;
 		--primaryLight: #ffba43;
+
 		--secondary: #ffba43;
 		--secondaryLight: #ffba43;
+		 /* Text */
 		--headerColor: #1a1a1a;
 		--bodyTextColor: #4e4b66;
 		--bodyTextColorWhite: #fafbfc;
@@ -33,7 +36,8 @@
 		--bodyFontSize: 1rem;
 		/* 60px - 100px top and bottom */
 		--sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-
+		
+		  /* Typography */
 		--headerFont: "Roboto", Arial, sans-serif;
 		--bodyFont: "Roboto", Arial, sans-serif;
 	}
