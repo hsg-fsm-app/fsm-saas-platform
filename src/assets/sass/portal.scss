@@ -2054,6 +2054,24 @@
             text-transform: uppercase;
         }
 
+        // Hex text input for manual color entry
+        .cs-color-text {
+            width: 5rem;
+            padding: 0.5rem;
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+            border: 1px solid #d1d5db;
+            border-radius: calc(4 / 16 * 1rem);
+            background: #fff;
+
+            &:focus {
+                outline: none;
+                border-color: var(--primary);
+            }
+        }
+
         .cs-form-grid {
             display: grid;
             grid-template-columns: 1fr;

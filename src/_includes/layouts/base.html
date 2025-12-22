@@ -52,5 +52,8 @@
         </main>
         {% include "sections/footer.html" %}
 
+        <!-- Load saved theme colors on every page -->
+        <script src="/assets/js/theme-manager.js"></script>
+        <script>window.ThemeManager && ThemeManager.loadTheme();</script>
     </body>
 </html>

@@ -24,8 +24,8 @@ eleventyNavigation:
                         <p class="cs-admin-subtitle">Manage your website settings, features, and content</p>
                     </div>
                     <div class="cs-admin-actions">
-                        <button class="cs-button-secondary">View Site</button>
-                        <button class="cs-button">Save Changes</button>
+                        <button class="cs-button-secondary" onclick="window.open('/', '_blank')">View Site</button>
+                        <button class="cs-button" id="save-theme-btn">Save Changes</button>
                     </div>
                 </div>
 
@@ -98,22 +98,22 @@ eleventyNavigation:
                                     <div class="cs-color-picker">
                                         <label class="cs-color-label">Primary Color</label>
                                         <div class="cs-color-input-wrapper">
-                                            <input type="color" value="#ff6a3e" class="cs-color-input">
-                                            <span class="cs-color-value">#ff6a3e</span>
+                                            <input type="color" value="#ff6a3e" class="cs-color-input" data-css-var="--primary">
+                                            <input type="text" value="#ff6a3e" class="cs-color-text" data-css-var="--primary" maxlength="7">
                                         </div>
                                     </div>
                                     <div class="cs-color-picker">
                                         <label class="cs-color-label">Secondary Color</label>
                                         <div class="cs-color-input-wrapper">
-                                            <input type="color" value="#ffba43" class="cs-color-input">
-                                            <span class="cs-color-value">#ffba43</span>
+                                            <input type="color" value="#ffba43" class="cs-color-input" data-css-var="--secondary">
+                                            <input type="text" value="#ffba43" class="cs-color-text" data-css-var="--secondary" maxlength="7">
                                         </div>
                                     </div>
                                     <div class="cs-color-picker">
                                         <label class="cs-color-label">Accent Color</label>
                                         <div class="cs-color-input-wrapper">
-                                            <input type="color" value="#1a1a1a" class="cs-color-input">
-                                            <span class="cs-color-value">#1a1a1a</span>
+                                            <input type="color" value="#1a1a1a" class="cs-color-input" data-css-var="--headerColor">
+                                            <input type="text" value="#1a1a1a" class="cs-color-text" data-css-var="--headerColor" maxlength="7">
                                         </div>
                                     </div>
                                 </div>
@@ -399,4 +399,5 @@ eleventyNavigation:
             </div>
         </section>
     </main>
+    <script src="/assets/js/admin-dashboard.js"></script>
 {% endblock %}
