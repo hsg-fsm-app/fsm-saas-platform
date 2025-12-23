@@ -4,6 +4,9 @@
 // Documentation: https://www.11ty.dev/docs/config/
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Load environment variables from .env file
+require('dotenv').config();
+
 // 📦 Plugin Imports
 const pluginImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const pluginMinifier = require("@codestitchofficial/eleventy-plugin-minify");
@@ -113,6 +116,15 @@ module.exports = function (eleventyConfig) {
      * Updates automatically with each build
      */
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+    // ═════════════════════════════════════════════════════════════════════════
+    // GLOBAL DATA
+    // Make environment variables available in templates
+    // ═════════════════════════════════════════════════════════════════════════
+    
+    eleventyConfig.addGlobalData("env", {
+        PROD_API_BASE_URL: process.env.PROD_API_BASE_URL || 'http://localhost:3000'
+    });
 
     // ═════════════════════════════════════════════════════════════════════════
     // BUILD CONFIGURATION

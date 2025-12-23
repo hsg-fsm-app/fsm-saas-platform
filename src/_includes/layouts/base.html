@@ -37,6 +37,9 @@
         <link rel="stylesheet" href="/assets/css/root.css">
         
         <!-- Dashboard API Integration - Overrides CSS variables from root.css -->
+        <script>
+            window.PROD_API_BASE_URL = '{{ env.PROD_API_BASE_URL }}';
+        </script>
         <script src="/assets/js/site-config-integration.js"></script>
         
         <script defer src="/assets/js/dark.js"></script>

@@ -4,7 +4,7 @@
  * This overrides the default SCSS variables with values from the dashboard
  */
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = window.PROD_API_BASE_URL || 'http://localhost:3000';
 
 /**
  * Fetch and apply site configuration
